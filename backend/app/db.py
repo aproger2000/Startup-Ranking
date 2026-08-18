@@ -66,9 +66,13 @@ def get_conn():
     """Одно соединение на поток (sqlite3-объекты не потокобезопасны между потоками)."""
     conn = getattr(_local, "conn", None)
     if conn is None:
-        conn = sqlite3.connect(DB_PATH)
+        conn = sqlite3.connect(DB_PATH, timeout=10)
         conn.row_factory = sqlite3.Row
         conn.execute("PRAGMA foreign_keys = ON")
+        # WAL позволяет читать во время записи и снижает риск "database is locked"
+        # при параллельных запросах от нескольких потоков ThreadingHTTPServer.
+        conn.execute("PRAGMA journal_mode = WAL")
+        conn.execute("PRAGMA busy_timeout = 10000")
         _local.conn = conn
     return conn
 
