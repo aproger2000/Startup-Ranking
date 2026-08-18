@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: startup-ranking-service
+    runtime: python
+    plan: starter          # платный план — нужен для постоянного диска (persistent disk)
+    region: frankfurt       # ближайший к РФ регион Render; поменяйте при желании
+    rootDir: backend
+    buildCommand: "true"    # зависимостей нет — сборка не требуется
+    startCommand: "python3 boot.py"
+    healthCheckPath: /api/health
+    envVars:
+      - key: ADMIN_API_KEY
+        sync: false          # задайте секретное значение в панели Render после первого деплоя
+      - key: DB_PATH
+        value: /var/data/startups.db
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+    disk:
+      name: startup-data
+      mountPath: /var/data
+      sizeGB: 1

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Админ-панель · Топ стартапов России</title>
+<style>
+  :root { color-scheme: light; }
+  .viz-root {
+    --surface-1:      #fcfcfb;
+    --page-plane:      #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --gridline:       #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --card-border:    rgba(11,11,11,0.08);
+    --series-1:       #2a78d6;
+    --good:           #006300;
+    --bad:            #d03b3b;
+    --chip-bg:        #f0efec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1: #1a1a19; --page-plane:#0d0d0d; --text-primary:#fff; --text-secondary:#c3c2b7;
+      --text-muted:#898781; --gridline:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+      --card-border:rgba(255,255,255,0.10); --series-1:#3987e5; --good:#0ca30c; --bad:#e66767; --chip-bg:#26261f;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1: #1a1a19; --page-plane:#0d0d0d; --text-primary:#fff; --text-secondary:#c3c2b7;
+    --text-muted:#898781; --gridline:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+    --card-border:rgba(255,255,255,0.10); --series-1:#3987e5; --good:#0ca30c; --bad:#e66767; --chip-bg:#26261f;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin:0; padding:0; }
+  body { background: var(--page-plane); font-family: system-ui,-apple-system,"Segoe UI",sans-serif; color: var(--text-primary); }
+  .viz-root { max-width: 900px; margin:0 auto; padding: 16px 14px 60px; }
+
+  .top-bar { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  h1 { font-size: 19px; font-weight:700; margin:0 0 4px; letter-spacing:-0.01em; }
+  .subtitle { color:var(--text-secondary); font-size:12.5px; line-height:1.45; margin:0 0 4px; }
+  .theme-toggle { border:1px solid var(--card-border); background:var(--surface-1); color:var(--text-secondary);
+    border-radius:8px; padding:8px 10px; font-size:16px; cursor:pointer; flex-shrink:0; line-height:1; }
+  a.back-link { color:var(--series-1); font-size:12.5px; text-decoration:none; }
+
+  .card { background:var(--surface-1); border:1px solid var(--card-border); border-radius:14px; padding:14px 14px 16px; margin-bottom:14px; }
+  .card h2 { font-size:14.5px; margin:0 0 3px; font-weight:700; }
+  .card .card-sub { font-size:11.5px; color:var(--text-muted); margin:0 0 12px; }
+
+  label { display:block; font-size:11.5px; color:var(--text-secondary); margin:10px 0 4px; font-weight:600; }
+  input[type=text], input[type=number], input[type=password], input[type=url], select, textarea {
+    width:100%; background:var(--page-plane); border:1px solid var(--card-border); color:var(--text-primary);
+    border-radius:9px; padding:9px 10px; font-size:13.5px; font-family:inherit; -webkit-appearance:none; appearance:none;
+  }
+  textarea { min-height:90px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12px; resize:vertical; }
+  .grid2 { display:grid; grid-template-columns:1fr; gap:0 10px; }
+  @media (min-width:620px) { .grid2 { grid-template-columns:1fr 1fr; } }
+  .checks { display:flex; flex-wrap:wrap; gap:12px; margin-top:12px; }
+  .checks label { display:flex; align-items:center; gap:6px; margin:0; font-weight:500; font-size:12.5px; color:var(--text-primary); }
+  .checks input { width:auto; }
+
+  .btn { display:inline-block; border:none; border-radius:9px; padding:10px 16px; font-size:13.5px; font-weight:600;
+    cursor:pointer; font-family:inherit; }
+  .btn-primary { background:var(--series-1); color:#fff; }
+  .btn-secondary { background:var(--chip-bg); color:var(--text-primary); }
+  .btn-danger { background:var(--bad); color:#fff; }
+  .btn-row { display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
+  .btn:disabled { opacity:.5; cursor:default; }
+
+  .status-msg { font-size:12.5px; border-radius:8px; padding:8px 11px; margin-top:10px; display:none; }
+  .status-msg.ok { display:block; background:rgba(0,150,0,.12); color:var(--good); }
+  .status-msg.err { display:block; background:rgba(200,50,50,.12); color:var(--bad); }
+
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+  .filters input, .filters select { flex:1; min-width:140px; }
+
+  .row-item { border-bottom:1px solid var(--gridline); padding:10px 2px; display:flex; gap:10px; align-items:flex-start; }
+  .row-item:last-child { border-bottom:none; }
+  .row-main { flex:1; min-width:0; }
+  .row-name { font-weight:700; font-size:13.5px; }
+  .row-meta { color:var(--text-muted); font-size:11.5px; margin-top:2px; }
+  .sector-chip { display:inline-block; background:var(--chip-bg); color:var(--text-secondary); font-size:10.5px;
+    padding:2px 7px; border-radius:999px; }
+  .score-badge { flex-shrink:0; font-variant-numeric:tabular-nums; background:var(--chip-bg); border-radius:6px;
+    padding:2px 7px; font-size:12px; font-weight:700; }
+  .row-actions { display:flex; gap:6px; flex-shrink:0; }
+  .icon-btn { border:1px solid var(--card-border); background:var(--surface-1); color:var(--text-secondary);
+    border-radius:7px; padding:6px 9px; font-size:12px; cursor:pointer; }
+  .icon-btn:hover { color:var(--text-primary); }
+  .empty-state { text-align:center; color:var(--text-muted); font-size:13px; padding:20px 10px; }
+
+  details.section summary { cursor:pointer; font-weight:600; font-size:13.5px; padding:2px 0; }
+  .lock-note { font-size:12px; color:var(--text-muted); }
+</style>
+</head>
+<body>
+<div class="viz-root">
+  <div class="top-bar">
+    <div>
+      <h1>Админ-панель</h1>
+      <p class="subtitle">Добавление, редактирование и массовая загрузка компаний в базу рейтинга.</p>
+      <a class="back-link" href="/">← к публичному рейтингу</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle">🌓</button>
+  </div>
+
+  <div class="card">
+    <h2>Ключ доступа</h2>
+    <p class="card-sub">Нужен серверный <code>X-Api-Key</code> (переменная окружения <code>ADMIN_API_KEY</code>). Ключ хранится только в этом браузере.</p>
+    <input type="password" id="apiKey" placeholder="Введите admin-ключ…">
+    <div class="btn-row">
+      <button class="btn btn-primary" id="saveKeyBtn">Сохранить ключ</button>
+      <button class="btn btn-secondary" id="clearKeyBtn">Забыть ключ</button>
+    </div>
+    <div class="status-msg" id="keyStatus"></div>
+  </div>
+
+  <div class="card">
+    <h2 id="formTitle">Добавить компанию</h2>
+    <p class="card-sub">Скор считается автоматически на сервере по формуле из методологии — вручную его вводить не нужно.</p>
+    <form id="companyForm">
+      <input type="hidden" id="f_id">
+      <div class="grid2">
+        <div><label>Название *</label><input type="text" id="f_name" required></div>
+        <div><label>Отрасль *</label><input type="text" id="f_sector" required></div>
+      </div>
+      <div class="grid2">
+        <div><label>Год основания</label><input type="number" id="f_founded" placeholder="напр. 2021"></div>
+        <div><label>Категория</label>
+          <select id="f_category"><option value="domestic">domestic (Россия)</option><option value="diaspora">diaspora</option></select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div><label>Выручка, млн ₽</label><input type="number" step="any" id="f_rev"></div>
+        <div><label>Год выручки</label><input type="number" id="f_rev_year"></div>
+      </div>
+      <div class="grid2">
+        <div><label>Рост выручки, % (год к году)</label><input type="number" step="any" id="f_growth"></div>
+        <div><label>Комментарий к росту (если нет числа)</label><input type="text" id="f_growth_note"></div>
+      </div>
+      <div class="grid2">
+        <div><label>Финансирование, млн ₽</label><input type="number" step="any" id="f_funding_rub"></div>
+        <div><label>Комментарий к финансированию</label><input type="text" id="f_funding_note"></div>
+      </div>
+      <label>Инвесторы</label><input type="text" id="f_investors">
+      <label>Описание</label><input type="text" id="f_desc">
+      <label>Заметка / оговорка</label><input type="text" id="f_note">
+      <div class="grid2">
+        <div><label>Источник — название</label><input type="text" id="f_source_name"></div>
+        <div><label>Источник — ссылка</label><input type="url" id="f_source_url"></div>
+      </div>
+      <div class="grid2">
+        <div><label>Статус</label>
+          <select id="f_status"><option value="active">active</option><option value="closed">closed</option><option value="distress">distress</option></select>
+        </div>
+        <div><label>Уверенность в данных</label>
+          <select id="f_confidence"><option value="high">high</option><option value="medium" selected>medium</option><option value="low">low</option></select>
+        </div>
+      </div>
+      <div class="checks">
+        <label><input type="checkbox" id="f_is_ipo"> IPO / pre-IPO</label>
+        <label><input type="checkbox" id="f_is_official_rank"> Есть в официальном рейтинге</label>
+        <label><input type="checkbox" id="f_is_major_investor"> Крупный/известный инвестор</label>
+      </div>
+      <div class="btn-row">
+        <button type="submit" class="btn btn-primary" id="submitBtn">Создать</button>
+        <button type="button" class="btn btn-secondary" id="resetFormBtn">Очистить форму</button>
+      </div>
+      <div class="status-msg" id="formStatus"></div>
+    </form>
+  </div>
+
+  <div class="card">
+    <details class="section">
+      <summary>Массовая загрузка (JSON)</summary>
+      <p class="card-sub" style="margin-top:8px;">Вставьте массив объектов с теми же полями (обязательны <code>name</code> и <code>sector</code>). Существующие записи (по паре название+отрасль) обновятся, новые — создадутся. Этим же способом сможет пользоваться автоматическая задача пополнения базы.</p>
+      <textarea id="bulkJson" placeholder='[ { "name": "...", "sector": "...", "rev": 120, ... } ]'></textarea>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="bulkBtn">Загрузить</button>
+      </div>
+      <div class="status-msg" id="bulkStatus"></div>
+    </details>
+  </div>
+
+  <div class="card">
+    <h2>Компании в базе</h2>
+    <div class="filters">
+      <input type="text" id="listSearch" placeholder="Поиск по названию…">
+      <select id="listCategory">
+        <option value="domestic">domestic</option><option value="diaspora">diaspora</option><option value="">все категории</option>
+      </select>
+      <select id="listStatus">
+        <option value="active">active</option><option value="closed">closed</option><option value="distress">distress</option><option value="">все статусы</option>
+      </select>
+    </div>
+    <div id="listBody"></div>
+    <div class="empty-state" id="listEmpty" style="display:none;">Ничего не найдено.</div>
+  </div>
+</div>
+
+<script>
+const API = "";
+let apiKey = localStorage.getItem('startup_admin_key') || '';
+document.getElementById('apiKey').value = apiKey;
+
+function esc(s){ const d=document.createElement('div'); d.textContent = s==null?'':s; return d.innerHTML; }
+function showStatus(el, msg, ok){
+  el.textContent = msg;
+  el.className = 'status-msg ' + (ok ? 'ok' : 'err');
+}
+
+function authHeaders(){
+  return { 'Content-Type': 'application/json', 'X-Api-Key': apiKey };
+}
+
+async function apiCall(path, opts){
+  const r = await fetch(API + path, opts);
+  let body = null;
+  try { body = await r.json(); } catch(e) {}
+  if (!r.ok) throw new Error((body && body.error) ? body.error : ('HTTP ' + r.status));
+  return body;
+}
+
+// ---- API key ----
+document.getElementById('saveKeyBtn').addEventListener('click', () => {
+  apiKey = document.getElementById('apiKey').value.trim();
+  localStorage.setItem('startup_admin_key', apiKey);
+  showStatus(document.getElementById('keyStatus'), 'Ключ сохранён в этом браузере.', true);
+});
+document.getElementById('clearKeyBtn').addEventListener('click', () => {
+  apiKey = '';
+  localStorage.removeItem('startup_admin_key');
+  document.getElementById('apiKey').value = '';
+  showStatus(document.getElementById('keyStatus'), 'Ключ забыт.', true);
+});
+
+// ---- form ----
+const FIELD_IDS = ['name','sector','founded','rev','rev_year','growth','growth_note','funding_rub','funding_note',
+  'investors','desc','note','source_name','source_url','status','confidence','category'];
+const NUM_FIELDS = new Set(['founded','rev','rev_year','growth','funding_rub']);
+const CHECK_IDS = ['is_ipo','is_official_rank','is_major_investor'];
+
+function resetForm(){
+  document.getElementById('f_id').value = '';
+  FIELD_IDS.forEach(k => { const el = document.getElementById('f_'+k); if (el) el.value = ''; });
+  CHECK_IDS.forEach(k => { document.getElementById('f_'+k).checked = false; });
+  document.getElementById('f_category').value = 'domestic';
+  document.getElementById('f_status').value = 'active';
+  document.getElementById('f_confidence').value = 'medium';
+  document.getElementById('formTitle').textContent = 'Добавить компанию';
+  document.getElementById('submitBtn').textContent = 'Создать';
+  document.getElementById('formStatus').style.display = 'none';
+}
+document.getElementById('resetFormBtn').addEventListener('click', resetForm);
+
+function fillForm(c){
+  document.getElementById('f_id').value = c.id;
+  FIELD_IDS.forEach(k => {
+    const el = document.getElementById('f_'+k);
+    if (el) el.value = c[k] === null || c[k] === undefined ? '' : c[k];
+  });
+  CHECK_IDS.forEach(k => { document.getElementById('f_'+k).checked = !!c[k]; });
+  document.getElementById('formTitle').textContent = 'Редактировать: ' + c.name;
+  document.getElementById('submitBtn').textContent = 'Сохранить изменения';
+  window.scrollTo({top: document.getElementById('companyForm').offsetTop - 20, behavior:'smooth'});
+}
+
+function collectFormData(){
+  const data = {};
+  FIELD_IDS.forEach(k => {
+    const el = document.getElementById('f_'+k);
+    if (!el) return;
+    let v = el.value;
+    if (v === '') { data[k] = null; return; }
+    data[k] = NUM_FIELDS.has(k) ? Number(v) : v;
+  });
+  CHECK_IDS.forEach(k => { data[k] = document.getElementById('f_'+k).checked; });
+  return data;
+}
+
+document.getElementById('companyForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const statusEl = document.getElementById('formStatus');
+  if (!apiKey) { showStatus(statusEl, 'Сначала введите и сохраните admin-ключ.', false); return; }
+  const id = document.getElementById('f_id').value;
+  const data = collectFormData();
+  if (!data.name || !data.sector) { showStatus(statusEl, 'Название и отрасль обязательны.', false); return; }
+  try {
+    let result;
+    if (id) {
+      result = await apiCall(`/api/admin/companies/${id}`, { method:'PUT', headers: authHeaders(), body: JSON.stringify(data) });
+    } else {
+      result = await apiCall('/api/admin/companies', { method:'POST', headers: authHeaders(), body: JSON.stringify(data) });
+    }
+    showStatus(statusEl, `Сохранено: «${result.name}», скор ${result.score}.`, true);
+    resetForm();
+    loadList(true);
+  } catch (err) {
+    showStatus(statusEl, 'Ошибка: ' + err.message, false);
+  }
+});
+
+// ---- bulk ----
+document.getElementById('bulkBtn').addEventListener('click', async () => {
+  const statusEl = document.getElementById('bulkStatus');
+  if (!apiKey) { showStatus(statusEl, 'Сначала введите и сохраните admin-ключ.', false); return; }
+  let items;
+  try {
+    items = JSON.parse(document.getElementById('bulkJson').value);
+    if (!Array.isArray(items)) throw new Error('Ожидается JSON-массив объектов');
+  } catch (err) {
+    showStatus(statusEl, 'Некорректный JSON: ' + err.message, false);
+    return;
+  }
+  try {
+    const result = await apiCall('/api/admin/companies/bulk', { method:'POST', headers: authHeaders(), body: JSON.stringify(items) });
+    showStatus(statusEl, `Готово: создано ${result.created}, обновлено ${result.updated}, всего ${result.total}.`, true);
+    document.getElementById('bulkJson').value = '';
+    loadList(true);
+  } catch (err) {
+    showStatus(statusEl, 'Ошибка: ' + err.message, false);
+  }
+});
+
+// ---- list ----
+let listDebounce;
+async function loadList(){
+  const search = document.getElementById('listSearch').value.trim();
+  const category = document.getElementById('listCategory').value;
+  const status = document.getElementById('listStatus').value;
+  const params = new URLSearchParams({ limit: 200, offset: 0, sort_by: 'score', sort_dir: 'desc' });
+  if (search) params.set('search', search);
+  if (category) params.set('category', category);
+  if (status) params.set('status', status);
+  else params.set('status', ''); // явно снять фильтр по статусу, если выбрано "все"
+  let data;
+  try {
+    data = await apiCall(`/api/companies?${params.toString()}`);
+  } catch (err) {
+    document.getElementById('listBody').innerHTML = '';
+    document.getElementById('listEmpty').style.display = 'block';
+    document.getElementById('listEmpty').textContent = 'Ошибка загрузки: ' + err.message;
+    return;
+  }
+  const body = document.getElementById('listBody');
+  const empty = document.getElementById('listEmpty');
+  if (!data.items.length) {
+    body.innerHTML = '';
+    empty.textContent = 'Ничего не найдено.';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  body.innerHTML = data.items.map(c => `
+    <div class="row-item">
+      <div class="row-main">
+        <span class="row-name">${esc(c.name)}</span> <span class="score-badge">${c.score}</span>
+        <div class="row-meta"><span class="sector-chip">${esc(c.sector)}</span> · ${c.founded ?? '?'} · ${esc(c.category)} / ${esc(c.status)}</div>
+      </div>
+      <div class="row-actions">
+        <button class="icon-btn" data-edit="${c.id}">Изм.</button>
+        <button class="icon-btn" data-del="${c.id}" data-name="${esc(c.name)}">Удал.</button>
+      </div>
+    </div>`).join('');
+  body.querySelectorAll('[data-edit]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const c = data.items.find(x => String(x.id) === btn.dataset.edit);
+      if (c) fillForm(c);
+    });
+  });
+  body.querySelectorAll('[data-del]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      if (!apiKey) { alert('Сначала введите и сохраните admin-ключ.'); return; }
+      if (!confirm(`Удалить «${btn.dataset.name}»? Это необратимо.`)) return;
+      try {
+        await apiCall(`/api/admin/companies/${btn.dataset.del}`, { method:'DELETE', headers: authHeaders() });
+        loadList();
+      } catch (err) {
+        alert('Ошибка удаления: ' + err.message);
+      }
+    });
+  });
+}
+document.getElementById('listSearch').addEventListener('input', () => { clearTimeout(listDebounce); listDebounce = setTimeout(loadList, 300); });
+document.getElementById('listCategory').addEventListener('change', loadList);
+document.getElementById('listStatus').addEventListener('change', loadList);
+
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const root = document.documentElement;
+  const cur = root.getAttribute('data-theme');
+  if (cur === 'dark') root.setAttribute('data-theme','light');
+  else if (cur === 'light') root.removeAttribute('data-theme');
+  else root.setAttribute('data-theme','dark');
+});
+
+loadList();
+</script>
+</body>
+</html>
