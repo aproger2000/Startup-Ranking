@@ -112,12 +112,18 @@ def _clean(data: dict) -> dict:
 
 
 def list_companies(sector=None, search=None, category="domestic", status="active",
-                    bucket=None, limit=100, offset=0, sort_by="score", sort_dir="desc"):
+                    bucket=None, limit=100, offset=0, sort_by="score", sort_dir="desc",
+                    include_excluded=False):
     """bucket — один из buckets.BUCKETS ("young"/"mature"/"aged"/"early_stage")
     или None (без фильтра по разделу). Фильтрация по bucket и сортировка/
     пагинация делаются в Python поверх результата SQL-запроса — набор данных
     небольшой (сотни записей), а bucket вычисляется динамически от текущего
-    года и не хранится в колонке, так что чистого SQL-WHERE для него нет."""
+    года и не хранится в колонке, так что чистого SQL-WHERE для него нет.
+
+    include_excluded=True отключает фильтр по buckets.MAX_AGE_YEARS (компании
+    старше 15 лет, bucket=None) — используется только админ-панелью, чтобы
+    такие записи оставались находимыми и редактируемыми/удаляемыми, хотя из
+    публичного рейтинга они скрыты."""
     allowed_sort = {"score", "rev", "growth", "funding_rub", "founded", "name"}
     if sort_by not in allowed_sort:
         sort_by = "score"
@@ -144,6 +150,12 @@ def list_companies(sector=None, search=None, category="domestic", status="active
 
     rows = conn.execute(f"SELECT * FROM companies {where_sql}", params).fetchall()
     items = [_row_to_dict(r) for r in rows]
+
+    # компании старше buckets.MAX_AGE_YEARS (bucket=None) исключены из рейтинга
+    # целиком — не только из конкретного раздела, но из любой выдачи вообще
+    # (кроме админ-панели, см. include_excluded)
+    if not include_excluded:
+        items = [it for it in items if it["bucket"] is not None]
 
     if bucket:
         items = [it for it in items if it["bucket"] == bucket]
@@ -257,33 +269,39 @@ def bucket_counts(category="domestic", status="active"):
     return counts
 
 
-def sector_counts(category="domestic", status="active"):
+def _active_items(category="domestic", status="active"):
+    """Все записи категории/статуса, приведённые в словарь и уже без компаний
+    старше buckets.MAX_AGE_YEARS (bucket=None) — общая база для sector_counts()
+    и stats(), чтобы они считали ровно то же множество записей, что видно в
+    списках/разделах."""
     conn = get_conn()
+    where = ["category = ?", "status = ?"]
+    params = [category, status]
     rows = conn.execute(
-        "SELECT sector, COUNT(*) as n FROM companies WHERE category = ? AND status = ? GROUP BY sector ORDER BY n DESC",
-        (category, status),
+        f"SELECT * FROM companies WHERE {' AND '.join(where)}", params
     ).fetchall()
-    return [[r["sector"], r["n"]] for r in rows]
+    items = [_row_to_dict(r) for r in rows]
+    return [it for it in items if it["bucket"] is not None]
+
+
+def sector_counts(category="domestic", status="active"):
+    items = _active_items(category, status)
+    counts = {}
+    for it in items:
+        counts[it["sector"]] = counts.get(it["sector"], 0) + 1
+    return [[sector, n] for sector, n in sorted(counts.items(), key=lambda kv: kv[1], reverse=True)]
 
 
 def stats(category="domestic", status="active"):
-    conn = get_conn()
-    row = conn.execute(
-        """SELECT COUNT(*) as total,
-                  COUNT(rev) as n_rev, COALESCE(SUM(rev), 0) as sum_rev,
-                  COUNT(funding_rub) as n_funding, COALESCE(SUM(funding_rub), 0) as sum_funding
-           FROM companies WHERE category = ? AND status = ?""",
-        (category, status),
-    ).fetchone()
-    n_sectors = conn.execute(
-        "SELECT COUNT(DISTINCT sector) FROM companies WHERE category = ? AND status = ?",
-        (category, status),
-    ).fetchone()[0]
+    items = _active_items(category, status)
+    revs = [it["rev"] for it in items if it.get("rev") is not None]
+    fundings = [it["funding_rub"] for it in items if it.get("funding_rub") is not None]
+    sectors = {it["sector"] for it in items}
     return {
-        "total_companies": row["total"],
-        "total_sectors": n_sectors,
-        "total_revenue_mln": round(row["sum_rev"], 1),
-        "n_revenue_known": row["n_rev"],
-        "total_funding_mln": round(row["sum_funding"], 1),
-        "n_funding_known": row["n_funding"],
+        "total_companies": len(items),
+        "total_sectors": len(sectors),
+        "total_revenue_mln": round(sum(revs), 1),
+        "n_revenue_known": len(revs),
+        "total_funding_mln": round(sum(fundings), 1),
+        "n_funding_known": len(fundings),
     }

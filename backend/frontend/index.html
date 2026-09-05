@@ -88,6 +88,9 @@
   .mini-sector { color:var(--text-muted); font-size:10.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .mini-metric { color:var(--text-secondary); font-size:11px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   .mini-score { flex-shrink:0; font-variant-numeric:tabular-nums; background:var(--chip-bg); border-radius:6px; padding:3px 7px; font-size:12px; font-weight:700; }
+  .t-score { font-variant-numeric:tabular-nums; border-radius:6px; padding:4px 8px; font-weight:700; text-align:center; white-space:nowrap; }
+  .score-legend { display:flex; align-items:center; gap:8px; font-size:11px; color:var(--text-muted); margin:2px 2px 14px; }
+  .score-legend .bar { flex:1; max-width:220px; height:6px; border-radius:3px; background:linear-gradient(to right, #d03b3b, #fab219, #0ca30c); }
   .growth-pos { color:var(--good); } .growth-neg { color:var(--bad); }
   .na { color:var(--text-muted); }
   .empty-state { text-align:center; color:var(--text-muted); font-size:13px; padding:20px 10px; }
@@ -181,6 +184,12 @@
     </div>
   </div>
 
+  <div class="score-legend" title="Фон ячейки скора закрашен от красного (низкий скор) до зелёного (высокий скор) через жёлтый — шкала единая для всего сайта">
+    <span>Низкий скор</span>
+    <div class="bar"></div>
+    <span>Высокий скор</span>
+  </div>
+
   <!-- 4 раздела для домашнего рынка (bucket-based) -->
   <div id="domesticBuckets">
     <div class="bucket-grid">
@@ -198,7 +207,7 @@
       </div>
       <div class="card" data-bucket-card="aged">
         <div class="bucket-head"><h2>Возрастные, но растущие</h2></div>
-        <p class="card-sub">Старше 10 лет, активный рост · <span data-bucket-count="aged">…</span></p>
+        <p class="card-sub">10–15 лет, активный рост · <span data-bucket-count="aged">…</span></p>
         <div class="bucket-scroll" data-bucket-list="aged"></div>
         <div class="empty-state" data-bucket-empty="aged" style="display:none;">Ничего не найдено.</div>
       </div>
@@ -319,6 +328,34 @@ function buildQuery(extra){
   return params.toString();
 }
 
+// Цветовая шкала скора: красный (низкий) -> жёлтый -> зелёный (высокий),
+// единый диапазон для всего сайта (не зависит от раздела/фильтра), чтобы
+// цвет был сравним между разделами. Границы взяты по фактическому
+// распределению скора в базе (от -6 до ~62).
+const SCORE_MIN = -6, SCORE_MAX = 60;
+const SCORE_STOPS = [
+  [0xd0, 0x3b, 0x3b], // критично — красный
+  [0xfa, 0xb2, 0x19], // средне — жёлтый
+  [0x0c, 0xa3, 0x0c], // хорошо — зелёный
+];
+function scoreColor(score){
+  if (score === null || score === undefined || isNaN(score)) return null;
+  let t = (score - SCORE_MIN) / (SCORE_MAX - SCORE_MIN);
+  t = Math.max(0, Math.min(1, t));
+  const seg = t <= 0.5 ? 0 : 1;
+  const lt = t <= 0.5 ? t / 0.5 : (t - 0.5) / 0.5;
+  const lo = SCORE_STOPS[seg], hi = SCORE_STOPS[seg + 1];
+  const mix = (i) => Math.round(lo[i] + (hi[i] - lo[i]) * lt);
+  const r = mix(0), g = mix(1), b = mix(2);
+  const toLin = (v) => { v /= 255; return v <= 0.04045 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+  const lum = 0.2126 * toLin(r) + 0.7152 * toLin(g) + 0.0722 * toLin(b);
+  return { bg: `rgb(${r},${g},${b})`, fg: lum > 0.42 ? '#14150f' : '#ffffff' };
+}
+function scoreStyleAttr(score){
+  const sc = scoreColor(score);
+  return sc ? ` style="background:${sc.bg};color:${sc.fg};"` : '';
+}
+
 function miniRowHtml(c, rank){
   const fund = fmtFunding(c.funding_rub);
   let metric;
@@ -338,7 +375,7 @@ function miniRowHtml(c, rank){
       <div class="mini-name-row"><span class="mini-name">${esc(c.name)}</span><span class="mini-sector">${esc(c.sector)}</span></div>
       <div class="mini-metric">${metric}</div>
     </div>
-    <div class="mini-score">${c.score}</div>
+    <div class="mini-score"${scoreStyleAttr(c.score)}>${c.score}</div>
   </div>`;
 }
 
@@ -367,7 +404,7 @@ function diasporaRowHtml(c, rank){
     <td>${fund || (c.funding_note ? `<span class="na">${esc(c.funding_note)}</span>` : '<span class="na">нет данных</span>')}
       ${c.source_url ? `<br><a class="src-link" href="${escAttr(c.source_url)}" target="_blank" rel="noopener">${esc(c.source_name||'источник')} ↗</a>` : ''}
     </td>
-    <td>${c.score}</td>
+    <td><span class="t-score"${scoreStyleAttr(c.score)}>${c.score}</span></td>
   </tr>`;
 }
 
