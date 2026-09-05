@@ -137,6 +137,35 @@
   .methodology li { font-size:12.5px; line-height:1.6; color:var(--text-secondary); margin-bottom:5px; }
   .formula { font-family: ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11.5px; background:var(--chip-bg);
     padding:10px 11px; border-radius:8px; color:var(--text-primary); line-height:1.7; overflow-x:auto; white-space:pre-wrap; }
+
+  /* --- Активность венчурных фондов: намеренно другой дизайн (акцентная
+     шапка, таблица с зебра-строками), чтобы визуально не путать с
+     карточками рейтинга стартапов выше --- */
+  .vc-card { border:1px solid var(--card-border); border-radius:14px; overflow:hidden; margin-bottom:14px; background:var(--surface-1); }
+  .vc-card-head { background:var(--series-1); color:#fff; padding:16px 18px 14px; }
+  .vc-card-head h2 { margin:0 0 4px; font-size:16px; color:#fff; }
+  .vc-card-head p { margin:0; font-size:12px; opacity:.92; line-height:1.5; }
+  .vc-table-wrap { overflow-x:auto; }
+  table.vc-table { width:100%; border-collapse:collapse; font-size:12.5px; min-width:680px; }
+  table.vc-table thead th { text-align:left; font-weight:700; color:var(--text-secondary); font-size:10.5px; text-transform:uppercase;
+    letter-spacing:.04em; padding:10px 12px; border-bottom:2px solid var(--series-1); white-space:nowrap; background:var(--chip-bg); }
+  table.vc-table tbody td { padding:11px 12px; border-bottom:1px solid var(--gridline); vertical-align:top; }
+  table.vc-table tbody tr:nth-child(even) { background:var(--chip-bg); }
+  .vc-name { font-weight:700; }
+  .vc-stage { color:var(--text-muted); font-size:10.5px; margin-top:2px; }
+  .vc-deals-num { font-variant-numeric:tabular-nums; font-weight:700; font-size:14px; }
+  .vc-deals-sub { color:var(--text-muted); font-size:10px; margin-top:1px; }
+  .vc-deals-note { color:var(--text-muted); font-size:11px; font-style:italic; line-height:1.4; max-width:230px; display:inline-block; }
+  .vc-chip { display:inline-block; background:var(--chip-bg); border:1px solid var(--card-border); color:var(--text-secondary); font-size:10.5px;
+    padding:2px 7px; border-radius:999px; margin:0 4px 4px 0; }
+  .vc-exit-note { color:var(--good); font-size:10.5px; margin-top:4px; }
+  .vc-quality-track { width:60px; background:var(--gridline); border-radius:3px; height:7px; overflow:hidden; }
+  .vc-quality-fill { background:var(--series-1); height:100%; }
+  .vc-quality-val { font-size:10px; color:var(--text-muted); margin-top:3px; font-variant-numeric:tabular-nums; }
+  .vc-source { font-size:10.5px; color:var(--text-muted); }
+  .vc-source a { color:var(--series-1); text-decoration:none; }
+  .vc-source a:hover { text-decoration:underline; }
+  .vc-foot { padding:12px 16px 16px; font-size:11.5px; color:var(--text-muted); line-height:1.6; border-top:1px solid var(--gridline); }
   footer { text-align:center; color:var(--text-muted); font-size:11.5px; margin-top:24px; line-height:1.6; }
   footer a { color: var(--series-1); }
 </style>
@@ -244,6 +273,29 @@
   <div class="card methodology" id="methodologyCard">
     <h2>Методология и ограничения</h2>
     <div id="methodologyBody">Загрузка…</div>
+  </div>
+
+  <div class="vc-card">
+    <div class="vc-card-head">
+      <h2>Активность венчурных фондов</h2>
+      <p>Число сделок за 2024–2025 год и индекс качества сделок — по открытым рэнкингам рынка (не то же самое, что рейтинг стартапов выше)</p>
+    </div>
+    <div class="vc-table-wrap">
+      <table class="vc-table">
+        <thead><tr><th>#</th><th>Фонд</th><th>Сделок 2024–2025</th><th>Портфель / выходы</th><th>Качество сделок</th><th>Источник</th></tr></thead>
+        <tbody id="vcFundsBody"></tbody>
+      </table>
+    </div>
+    <div class="vc-foot">
+      <b>Индекс качества (0–10)</b> — эвристика, не точная оценка: +4 за подтверждённый заметный выход
+      (IPO/M&amp;A) портфельной компании, +1 за каждую названную узнаваемую портфельную компанию (максимум 3),
+      +3 если фонд специализируется на поздних стадиях/pre-IPO (более крупные и более «рыночно проверенные» раунды).
+      Число сделок за год надёжно известно не для всех фондов — венчурный рынок в России в основном непубличен;
+      для фондов без точных цифр в колонке «Сделок» приведено текстовое пояснение об активности, а сортировка
+      идёт по индексу качества. Источники: Dsight «Венчурная Евразия» 2024–2025, HighTime.Media «Топ-31»,
+      RB.RU Data, Forbes.ru, ComNews, Ведомости и другие открытые обзоры — между рэнкингами возможны расхождения
+      в подсчёте сделок одного и того же фонда.
+    </div>
   </div>
 
   <footer>
@@ -447,6 +499,44 @@ async function loadMethodology(){
   document.getElementById('metaLine').textContent = `Курс для сопоставления валют: 1 USD ≈ ${m.usd_rub} ₽ (ориентировочно) · база пополняется`;
 }
 
+function vcDealsHtml(f){
+  const d24 = f.deals_2024, d25 = f.deals_2025;
+  if (d24 !== null || d25 !== null) {
+    const total = (d24||0) + (d25||0);
+    const parts = [];
+    if (d24 !== null) parts.push(`2024: ${d24}`);
+    if (d25 !== null) parts.push(`2025: ${d25}`);
+    return `<div class="vc-deals-num">${total}</div><div class="vc-deals-sub">${parts.join(' · ')}</div>`;
+  }
+  return `<span class="vc-deals-note">${esc(f.deals_total_note || 'нет точных данных')}</span>`;
+}
+
+function vcPortfolioHtml(f){
+  const chips = (f.notable_portfolio || []).map(p => `<span class="vc-chip">${esc(p)}</span>`).join('');
+  const exit = f.notable_exit_note ? `<div class="vc-exit-note">✓ ${esc(f.notable_exit_note)}</div>` : '';
+  return (chips || exit) ? `${chips}${exit}` : '<span class="na">нет данных</span>';
+}
+
+function vcFundRowHtml(f, rank){
+  const qPct = Math.round((f.quality_index / 10) * 100);
+  return `<tr>
+    <td>${rank}</td>
+    <td><div class="vc-name">${esc(f.name)}</div><div class="vc-stage">${esc(f.stage_focus || '')}</div></td>
+    <td>${vcDealsHtml(f)}</td>
+    <td>${vcPortfolioHtml(f)}</td>
+    <td>
+      <div class="vc-quality-track"><div class="vc-quality-fill" style="width:${qPct}%"></div></div>
+      <div class="vc-quality-val">${f.quality_index} / 10</div>
+    </td>
+    <td class="vc-source">${f.source_url ? `<a href="${escAttr(f.source_url)}" target="_blank" rel="noopener">${esc(f.source_name || 'источник')} ↗</a>` : esc(f.source_name || '—')}</td>
+  </tr>`;
+}
+
+async function loadVcFunds(){
+  const data = await fetchJSON('/api/vc-funds');
+  document.getElementById('vcFundsBody').innerHTML = data.items.map((f,i) => vcFundRowHtml(f, i+1)).join('');
+}
+
 async function refreshCategoryView(){
   document.getElementById('domesticBuckets').style.display = currentCategory === 'domestic' ? '' : 'none';
   document.getElementById('diasporaCard').style.display = currentCategory === 'diaspora' ? '' : 'none';
@@ -483,6 +573,7 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 (async function init(){
   await loadMethodology();
   await refreshCategoryView();
+  loadVcFunds();
 })();
 </script>
 </body>

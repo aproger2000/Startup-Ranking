@@ -6,12 +6,14 @@ install` и без риска конфликтов версий).
 Схема простая: одна таблица `companies`. Скор пересчитывается в scoring.py
 при каждой вставке/обновлении, поэтому рейтинг всегда согласован.
 """
+import json
 import os
 import sqlite3
 import threading
 
 from .buckets import compute_bucket
 from .scoring import compute_score
+from .vc_scoring import compute_quality_index
 
 DB_PATH = os.environ.get(
     "DB_PATH",
@@ -61,7 +63,30 @@ CREATE INDEX IF NOT EXISTS idx_companies_sector ON companies(sector);
 CREATE INDEX IF NOT EXISTS idx_companies_score ON companies(score);
 CREATE INDEX IF NOT EXISTS idx_companies_category_status ON companies(category, status);
 CREATE UNIQUE INDEX IF NOT EXISTS idx_companies_name_sector ON companies(name, sector);
+
+CREATE TABLE IF NOT EXISTS vc_funds (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE,
+    deals_2024 INTEGER,
+    deals_2025 INTEGER,
+    deals_total_note TEXT,
+    avg_check_note TEXT,
+    notable_portfolio TEXT DEFAULT '[]',
+    notable_exit_note TEXT,
+    stage_focus TEXT,
+    confidence TEXT DEFAULT 'medium',
+    source_name TEXT,
+    source_url TEXT,
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
 """
+
+VC_FUND_FIELDS = [
+    "name", "deals_2024", "deals_2025", "deals_total_note", "avg_check_note",
+    "notable_portfolio", "notable_exit_note", "stage_focus", "confidence",
+    "source_name", "source_url",
+]
 
 
 def get_conn():
@@ -290,6 +315,78 @@ def sector_counts(category="domestic", status="active"):
     for it in items:
         counts[it["sector"]] = counts.get(it["sector"], 0) + 1
     return [[sector, n] for sector, n in sorted(counts.items(), key=lambda kv: kv[1], reverse=True)]
+
+
+def _vc_row_to_dict(row: sqlite3.Row) -> dict:
+    d = dict(row)
+    try:
+        d["notable_portfolio"] = json.loads(d.get("notable_portfolio") or "[]")
+    except (TypeError, ValueError):
+        d["notable_portfolio"] = []
+    d["quality_index"] = compute_quality_index(
+        d.get("notable_exit_note"), d["notable_portfolio"], d.get("stage_focus")
+    )
+    return d
+
+
+def _clean_vc(data: dict) -> dict:
+    out = {k: data[k] for k in VC_FUND_FIELDS if k in data}
+    if "notable_portfolio" in out:
+        out["notable_portfolio"] = json.dumps(out["notable_portfolio"] or [], ensure_ascii=False)
+    return out
+
+
+def list_vc_funds():
+    """Возвращает все фонды, отсортированные так, чтобы сначала шли записи
+    с известным числом сделок (по убыванию deals_2024+deals_2025), а затем —
+    фонды без точных цифр (по убыванию quality_index). Строк немного
+    (десятки), поэтому сортировка в Python, как и для companies."""
+    conn = get_conn()
+    rows = conn.execute("SELECT * FROM vc_funds").fetchall()
+    items = [_vc_row_to_dict(r) for r in rows]
+
+    def deal_count(it):
+        d24, d25 = it.get("deals_2024"), it.get("deals_2025")
+        if d24 is None and d25 is None:
+            return None
+        return (d24 or 0) + (d25 or 0)
+
+    known = [it for it in items if deal_count(it) is not None]
+    unknown = [it for it in items if deal_count(it) is None]
+    known.sort(key=deal_count, reverse=True)
+    unknown.sort(key=lambda it: it["quality_index"], reverse=True)
+    return known + unknown
+
+
+def find_vc_fund_by_name(name: str):
+    conn = get_conn()
+    row = conn.execute("SELECT * FROM vc_funds WHERE name = ?", (name,)).fetchone()
+    return _vc_row_to_dict(row) if row else None
+
+
+def bulk_upsert_vc_funds(items: list[dict]):
+    created, updated = 0, 0
+    conn = get_conn()
+    for item in items:
+        data = _clean_vc(item)
+        existing = find_vc_fund_by_name(item["name"])
+        if existing:
+            set_clause = ", ".join(f"{k} = ?" for k in data.keys())
+            conn.execute(
+                f"UPDATE vc_funds SET {set_clause}, updated_at = CURRENT_TIMESTAMP WHERE id = ?",
+                list(data.values()) + [existing["id"]],
+            )
+            updated += 1
+        else:
+            cols = list(data.keys())
+            placeholders = ", ".join("?" for _ in cols)
+            conn.execute(
+                f"INSERT INTO vc_funds ({', '.join(cols)}) VALUES ({placeholders})",
+                list(data.values()),
+            )
+            created += 1
+    conn.commit()
+    return created, updated
 
 
 def stats(category="domestic", status="active"):

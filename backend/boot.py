@@ -38,6 +38,21 @@ if count == 0:
 else:
     print("[boot] База уже заполнена — пропускаю загрузку seed.json")
 
+vc_count = conn.execute("SELECT COUNT(*) FROM vc_funds").fetchone()[0]
+print(f"[boot] Венчурных фондов в базе: {vc_count}")
+if vc_count == 0:
+    vc_seed_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "vc_funds.json")
+    if os.path.exists(vc_seed_path):
+        print("[boot] Таблица vc_funds пуста — загружаю data/vc_funds.json...")
+        with open(vc_seed_path, encoding="utf-8") as f:
+            vc_items = json.load(f)
+        vc_created, vc_updated = db.bulk_upsert_vc_funds(vc_items)
+        print(f"[boot] Загружено фондов: создано {vc_created}, обновлено {vc_updated}, всего {len(vc_items)}")
+    else:
+        print("[boot] data/vc_funds.json не найден — пропускаю")
+else:
+    print("[boot] Таблица vc_funds уже заполнена — пропускаю загрузку")
+
 from app.server import main  # noqa: E402
 
 main()

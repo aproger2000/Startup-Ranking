@@ -196,6 +196,9 @@ class Handler(BaseHTTPRequestHandler):
                     category=qs.get("category", "domestic"), status=qs.get("status", "active")
                 ))
 
+            if path == "/api/vc-funds":
+                return self._send_json({"items": db.list_vc_funds()})
+
             if path == "/api/methodology":
                 return self._send_json(METHODOLOGY)
 
@@ -244,6 +247,17 @@ class Handler(BaseHTTPRequestHandler):
                     if not it.get("name") or not it.get("sector"):
                         return self._send_error_json(422, "У каждой записи обязательны поля name и sector")
                 created, updated = db.bulk_upsert(items)
+                return self._send_json({"created": created, "updated": updated, "total": created + updated})
+
+            if path == "/api/admin/vc-funds/bulk":
+                if not self._require_admin():
+                    return
+                data = self._read_json_body()
+                items = data if isinstance(data, list) else data.get("items", [])
+                for it in items:
+                    if not it.get("name"):
+                        return self._send_error_json(422, "У каждой записи обязательно поле name")
+                created, updated = db.bulk_upsert_vc_funds(items)
                 return self._send_json({"created": created, "updated": updated, "total": created + updated})
 
             return self._send_error_json(404, "Неизвестный маршрут")
