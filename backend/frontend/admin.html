@@ -129,7 +129,14 @@
         <div><label>Отрасль *</label><input type="text" id="f_sector" required></div>
       </div>
       <div class="grid2">
-        <div><label>Год основания</label><input type="number" id="f_founded" placeholder="напр. 2021"></div>
+        <div>
+          <label>Год основания</label>
+          <input type="number" id="f_founded" placeholder="напр. 2021">
+          <div class="btn-row" style="margin-top:6px;">
+            <button type="button" class="btn btn-secondary" id="enrichBtn" style="font-size:12px; padding:6px 10px;">Уточнить через DaData</button>
+          </div>
+          <div id="enrichResults" style="display:none; margin-top:8px; border:1px solid var(--card-border); border-radius:8px; padding:8px; font-size:12px; background:var(--page-plane);"></div>
+        </div>
         <div><label>Категория</label>
           <select id="f_category"><option value="domestic">domestic (Россия)</option><option value="diaspora">diaspora</option></select>
         </div>
@@ -161,10 +168,12 @@
           <select id="f_confidence"><option value="high">high</option><option value="medium" selected>medium</option><option value="low">low</option></select>
         </div>
       </div>
+      <p class="card-sub" style="margin:14px 0 0;">Раздел рейтинга (young/mature/aged/early_stage) вычисляется автоматически по году основания — вручную указывается только признак ранней стадии ниже, он приоритетнее возраста.</p>
       <div class="checks">
         <label><input type="checkbox" id="f_is_ipo"> IPO / pre-IPO</label>
         <label><input type="checkbox" id="f_is_official_rank"> Есть в официальном рейтинге</label>
         <label><input type="checkbox" id="f_is_major_investor"> Крупный/известный инвестор</label>
+        <label><input type="checkbox" id="f_is_early_stage"> Ранняя стадия (seed/pre-seed, без выручки) — попадёт в раздел «Ранняя стадия» независимо от возраста</label>
       </div>
       <div class="btn-row">
         <button type="submit" class="btn btn-primary" id="submitBtn">Создать</button>
@@ -204,6 +213,7 @@
 
 <script>
 const API = "";
+const BUCKET_LABELS = { young: 'Молодые', mature: 'Зрелые', aged: 'Возрастные, растущие', early_stage: 'Ранняя стадия' };
 let apiKey = localStorage.getItem('startup_admin_key') || '';
 document.getElementById('apiKey').value = apiKey;
 
@@ -242,7 +252,7 @@ document.getElementById('clearKeyBtn').addEventListener('click', () => {
 const FIELD_IDS = ['name','sector','founded','rev','rev_year','growth','growth_note','funding_rub','funding_note',
   'investors','desc','note','source_name','source_url','status','confidence','category'];
 const NUM_FIELDS = new Set(['founded','rev','rev_year','growth','funding_rub']);
-const CHECK_IDS = ['is_ipo','is_official_rank','is_major_investor'];
+const CHECK_IDS = ['is_ipo','is_official_rank','is_major_investor','is_early_stage'];
 
 function resetForm(){
   document.getElementById('f_id').value = '';
@@ -254,6 +264,7 @@ function resetForm(){
   document.getElementById('formTitle').textContent = 'Добавить компанию';
   document.getElementById('submitBtn').textContent = 'Создать';
   document.getElementById('formStatus').style.display = 'none';
+  document.getElementById('enrichResults').style.display = 'none';
 }
 document.getElementById('resetFormBtn').addEventListener('click', resetForm);
 
@@ -266,8 +277,34 @@ function fillForm(c){
   CHECK_IDS.forEach(k => { document.getElementById('f_'+k).checked = !!c[k]; });
   document.getElementById('formTitle').textContent = 'Редактировать: ' + c.name;
   document.getElementById('submitBtn').textContent = 'Сохранить изменения';
+  document.getElementById('enrichResults').style.display = 'none';
   window.scrollTo({top: document.getElementById('companyForm').offsetTop - 20, behavior:'smooth'});
 }
+
+// ---- DaData enrich ----
+document.getElementById('enrichBtn').addEventListener('click', async () => {
+  const box = document.getElementById('enrichResults');
+  const name = document.getElementById('f_name').value.trim();
+  if (!apiKey) { box.style.display='block'; box.textContent = 'Сначала введите и сохраните admin-ключ.'; return; }
+  if (!name) { box.style.display='block'; box.textContent = 'Сначала укажите название компании.'; return; }
+  box.style.display = 'block';
+  box.textContent = 'Ищу в DaData…';
+  try {
+    const data = await apiCall(`/api/admin/enrich?query=${encodeURIComponent(name)}`, { headers: authHeaders() });
+    if (!data.candidates.length) { box.textContent = 'DaData ничего не нашла по этому названию.'; return; }
+    box.innerHTML = data.candidates.map(c => `
+      <div style="padding:6px 0; border-bottom:1px solid var(--card-border);">
+        <b>${esc(c.name || '—')}</b> ${c.status ? `<span class="na" style="color:var(--text-muted)">(${esc(c.status)})</span>` : ''}<br>
+        ИНН: ${esc(c.inn || '—')} · Год регистрации: ${c.founded ?? '—'}
+        ${c.founded ? `<button type="button" class="icon-btn" data-apply-year="${c.founded}" style="margin-left:8px;">Применить год</button>` : ''}
+      </div>`).join('');
+    box.querySelectorAll('[data-apply-year]').forEach(btn => {
+      btn.addEventListener('click', () => { document.getElementById('f_founded').value = btn.dataset.applyYear; });
+    });
+  } catch (err) {
+    box.textContent = 'Ошибка: ' + err.message;
+  }
+});
 
 function collectFormData(){
   const data = {};
@@ -359,7 +396,7 @@ async function loadList(){
     <div class="row-item">
       <div class="row-main">
         <span class="row-name">${esc(c.name)}</span> <span class="score-badge">${c.score}</span>
-        <div class="row-meta"><span class="sector-chip">${esc(c.sector)}</span> · ${c.founded ?? '?'} · ${esc(c.category)} / ${esc(c.status)}</div>
+        <div class="row-meta"><span class="sector-chip">${esc(c.sector)}</span> · ${c.founded ?? '?'} · ${esc(BUCKET_LABELS[c.bucket] || c.bucket || '—')} · ${esc(c.category)} / ${esc(c.status)}</div>
       </div>
       <div class="row-actions">
         <button class="icon-btn" data-edit="${c.id}">Изм.</button>

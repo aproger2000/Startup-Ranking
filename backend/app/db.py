@@ -10,6 +10,7 @@ import os
 import sqlite3
 import threading
 
+from .buckets import compute_bucket
 from .scoring import compute_score
 
 DB_PATH = os.environ.get(
@@ -24,7 +25,7 @@ FIELDS = [
     "name", "sector", "founded", "rev", "rev_year", "growth", "growth_note",
     "funding_rub", "funding_note", "investors", "desc", "note",
     "source_name", "source_url",
-    "is_ipo", "is_official_rank", "is_major_investor",
+    "is_ipo", "is_official_rank", "is_major_investor", "is_early_stage",
     "category", "status", "confidence",
 ]
 
@@ -48,6 +49,7 @@ CREATE TABLE IF NOT EXISTS companies (
     is_ipo INTEGER DEFAULT 0,
     is_official_rank INTEGER DEFAULT 0,
     is_major_investor INTEGER DEFAULT 0,
+    is_early_stage INTEGER DEFAULT 0,
     category TEXT DEFAULT 'domestic',
     status TEXT DEFAULT 'active',
     confidence TEXT DEFAULT 'medium',
@@ -81,6 +83,17 @@ def init_db():
     conn = get_conn()
     conn.executescript(SCHEMA)
     conn.commit()
+    _migrate(conn)
+
+
+def _migrate(conn):
+    """Лёгкая миграция для БД, созданных до появления поля is_early_stage —
+    ALTER TABLE ... ADD COLUMN безопасен для повторного запуска (оборачиваем
+    в try/except, так как sqlite не поддерживает IF NOT EXISTS для колонок)."""
+    cols = {row["name"] for row in conn.execute("PRAGMA table_info(companies)")}
+    if "is_early_stage" not in cols:
+        conn.execute("ALTER TABLE companies ADD COLUMN is_early_stage INTEGER DEFAULT 0")
+        conn.commit()
 
 
 def _row_to_dict(row: sqlite3.Row) -> dict:
@@ -88,6 +101,8 @@ def _row_to_dict(row: sqlite3.Row) -> dict:
     d["is_ipo"] = bool(d["is_ipo"])
     d["is_official_rank"] = bool(d["is_official_rank"])
     d["is_major_investor"] = bool(d["is_major_investor"])
+    d["is_early_stage"] = bool(d.get("is_early_stage", 0))
+    d["bucket"] = compute_bucket(d.get("founded"), d["is_early_stage"])
     return d
 
 
@@ -97,11 +112,16 @@ def _clean(data: dict) -> dict:
 
 
 def list_companies(sector=None, search=None, category="domestic", status="active",
-                    limit=100, offset=0, sort_by="score", sort_dir="desc"):
+                    bucket=None, limit=100, offset=0, sort_by="score", sort_dir="desc"):
+    """bucket — один из buckets.BUCKETS ("young"/"mature"/"aged"/"early_stage")
+    или None (без фильтра по разделу). Фильтрация по bucket и сортировка/
+    пагинация делаются в Python поверх результата SQL-запроса — набор данных
+    небольшой (сотни записей), а bucket вычисляется динамически от текущего
+    года и не хранится в колонке, так что чистого SQL-WHERE для него нет."""
     allowed_sort = {"score", "rev", "growth", "funding_rub", "founded", "name"}
     if sort_by not in allowed_sort:
         sort_by = "score"
-    sort_dir = "DESC" if sort_dir != "asc" else "ASC"
+    reverse = sort_dir != "asc"
 
     where = []
     params = []
@@ -122,16 +142,21 @@ def list_companies(sector=None, search=None, category="domestic", status="active
     where_sql = ("WHERE " + " AND ".join(where)) if where else ""
     conn = get_conn()
 
-    total = conn.execute(f"SELECT COUNT(*) FROM companies {where_sql}", params).fetchone()[0]
+    rows = conn.execute(f"SELECT * FROM companies {where_sql}", params).fetchall()
+    items = [_row_to_dict(r) for r in rows]
 
-    # NULLS LAST не во всех сборках sqlite доступен единым синтаксисом — эмулируем через CASE.
-    rows = conn.execute(
-        f"""SELECT * FROM companies {where_sql}
-            ORDER BY ({sort_by} IS NULL), {sort_by} {sort_dir}
-            LIMIT ? OFFSET ?""",
-        params + [limit, offset],
-    ).fetchall()
-    return [_row_to_dict(r) for r in rows], total
+    if bucket:
+        items = [it for it in items if it["bucket"] == bucket]
+
+    # null-значения всегда в конце независимо от направления сортировки
+    non_null = [it for it in items if it.get(sort_by) is not None]
+    null_items = [it for it in items if it.get(sort_by) is None]
+    non_null.sort(key=lambda it: it[sort_by], reverse=reverse)
+    items = non_null + null_items
+
+    total = len(items)
+    page = items[offset:offset + limit]
+    return page, total
 
 
 def get_company(company_id: int):
@@ -211,6 +236,25 @@ def bulk_upsert(items: list[dict]):
             create_company(item)
             created += 1
     return created, updated
+
+
+def bucket_counts(category="domestic", status="active"):
+    """Количество компаний в каждом из 4 разделов (young/mature/aged/early_stage)
+    для заданной категории — одним проходом по данным, без отдельного запроса
+    на раздел."""
+    from .buckets import BUCKETS
+    conn = get_conn()
+    where = ["category = ?", "status = ?"]
+    params = [category, status]
+    rows = conn.execute(
+        f"SELECT * FROM companies WHERE {' AND '.join(where)}", params
+    ).fetchall()
+    counts = {b: 0 for b in BUCKETS}
+    for r in rows:
+        d = _row_to_dict(r)
+        if d["bucket"] in counts:
+            counts[d["bucket"]] += 1
+    return counts
 
 
 def sector_counts(category="domestic", status="active"):

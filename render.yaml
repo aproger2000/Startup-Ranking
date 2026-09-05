@@ -11,6 +11,8 @@ services:
     envVars:
       - key: ADMIN_API_KEY
         sync: false          # задайте секретное значение в панели Render после первого деплоя
+      - key: DADATA_API_KEY
+        sync: false          # опционально: ключ DaData для кнопки "Уточнить" в админ-панели (см. README)
       - key: DB_PATH
         value: /var/data/startups.db
       - key: PYTHON_VERSION

@@ -19,7 +19,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Drivee",
@@ -41,7 +42,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Whoosh",
@@ -63,7 +65,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Шард (Shard)",
@@ -85,7 +88,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Эмплай (Employ)",
@@ -107,7 +111,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Цифровые привычки",
@@ -129,7 +134,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Умскул (UmSkul)",
@@ -151,7 +157,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Фининвест",
@@ -173,7 +180,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Ecomcom (Точка Маркетплейсы)",
@@ -195,7 +203,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Mymeet.ai",
@@ -217,7 +226,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Abanking",
@@ -239,7 +249,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Zerocoder",
@@ -261,7 +272,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "«на_полке»",
@@ -283,7 +295,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "TutGood (repetitors.ru)",
@@ -305,7 +318,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Кселло (Ksello)",
@@ -327,7 +341,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "JetLend",
@@ -349,7 +364,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Винвестор",
@@ -371,7 +387,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Hello world",
@@ -393,7 +410,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Keeprise",
@@ -415,7 +433,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Urent (МТС Юрент)",
@@ -437,7 +456,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Neiry",
@@ -459,7 +479,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Эсборд (Esboard)",
@@ -481,7 +502,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "StyleBox",
@@ -503,7 +525,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Flydrone",
@@ -525,7 +548,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "FlyseeAgro",
@@ -547,7 +571,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "CyberPeak (Сайберпик)",
@@ -569,7 +594,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "TargetAI (Cashee)",
@@ -591,7 +617,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Уникальные роботы",
@@ -613,7 +640,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "ROBO",
@@ -635,7 +663,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "IN.TOP",
@@ -657,7 +686,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Platformeco",
@@ -679,7 +709,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "TMS HR",
@@ -701,7 +732,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Drinksome",
@@ -723,7 +755,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "ТенЧат (TenChat)",
@@ -745,7 +778,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Мультифактор (Multifactor)",
@@ -767,7 +801,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "Qummy",
@@ -789,7 +824,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "AGORA",
@@ -811,7 +847,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "HRlink (HR Link)",
@@ -833,7 +870,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Metascan",
@@ -855,7 +893,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "CodeScoring",
@@ -877,7 +916,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "RusRobot",
@@ -899,7 +939,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Scanfactory",
@@ -921,7 +962,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Cognitive Pilot",
@@ -943,7 +985,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Securitm",
@@ -965,7 +1008,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "«Кама» / АТОМ",
@@ -987,7 +1031,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Toloka AI",
@@ -1009,7 +1054,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "ITOGO",
@@ -1031,7 +1077,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "99 баллов",
@@ -1053,7 +1100,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Оптимакрос (Optimacros)",
@@ -1075,7 +1123,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Puzzle PropTech",
@@ -1097,7 +1146,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "АрхиТех ИИ (Kodik)",
@@ -1119,7 +1169,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Цельс (Celsus)",
@@ -1141,7 +1192,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Webiomed",
@@ -1163,7 +1215,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Hyper",
@@ -1185,7 +1238,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Odd Meter",
@@ -1207,7 +1261,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Fermata",
@@ -1229,7 +1284,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "GTLogistics",
@@ -1251,7 +1307,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Экспанта",
@@ -1273,7 +1330,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Дрон Солюшнс (Dron Solutions)",
@@ -1295,7 +1353,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "«Даркстор у дома»",
@@ -1317,7 +1376,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Dental Pro",
@@ -1339,7 +1399,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "SenseMachine",
@@ -1361,7 +1422,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "«Поговорим.Online»",
@@ -1383,7 +1445,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "«Бери заряд»",
@@ -1405,7 +1468,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "OneCell",
@@ -1427,7 +1491,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Bartello",
@@ -1449,7 +1514,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "ShinSale",
@@ -1471,7 +1537,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Platim",
@@ -1493,7 +1560,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Dresscode.ai",
@@ -1515,7 +1583,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Looky",
@@ -1537,7 +1606,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Metadoor",
@@ -1559,7 +1629,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Upside",
@@ -1581,7 +1652,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Xello",
@@ -1603,7 +1675,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "high"
+    "confidence": "high",
+    "is_early_stage": false
   },
   {
     "name": "«вжух»",
@@ -1625,7 +1698,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Wegosty",
@@ -1647,7 +1721,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Финакс (Finax)",
@@ -1669,7 +1744,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "MUST",
@@ -1691,7 +1767,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Health Hero",
@@ -1713,7 +1790,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Vetsy",
@@ -1735,7 +1813,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "«Экстра синема»",
@@ -1757,7 +1836,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Анабар",
@@ -1779,7 +1859,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Parkly",
@@ -1801,7 +1882,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "«Долгожитель»",
@@ -1823,7 +1905,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "re-feel",
@@ -1845,7 +1928,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Медитроника",
@@ -1867,7 +1951,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Третье Мнение (Third Opinion)",
@@ -1889,7 +1974,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Wowfit",
@@ -1911,7 +1997,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "B2Btrade",
@@ -1933,7 +2020,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Vetstem",
@@ -1955,7 +2043,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Оценка.tech",
@@ -1977,7 +2066,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "«Улыбнись AI»",
@@ -1999,7 +2089,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "TSRPP",
@@ -2021,7 +2112,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "«Нейроспутник»",
@@ -2043,7 +2135,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Qugo",
@@ -2065,7 +2158,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "SimpleEstate",
@@ -2087,7 +2181,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "«Брейнстарт»",
@@ -2109,7 +2204,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Копидефенд (Kopidefend)",
@@ -2131,7 +2227,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Brainphone",
@@ -2153,7 +2250,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "«Реатех»",
@@ -2175,7 +2273,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Бред Стикерс",
@@ -2197,7 +2296,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Rowi (ex-«Факторинг ПЛЮС»)",
@@ -2219,7 +2319,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Skysmart",
@@ -2241,7 +2342,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Финлаб (Finlab)",
@@ -2263,7 +2365,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Apibank",
@@ -2285,7 +2388,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Юником24",
@@ -2307,7 +2411,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Belmy",
@@ -2329,7 +2434,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Fogstream",
@@ -2351,7 +2457,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Mafin",
@@ -2373,7 +2480,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Mozen",
@@ -2395,7 +2503,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Atomyze",
@@ -2417,7 +2526,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Syntelly",
@@ -2439,7 +2549,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "CheckMe",
@@ -2461,7 +2572,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "QApp",
@@ -2483,7 +2595,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Yappy",
@@ -2505,7 +2618,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Beryoski",
@@ -2527,7 +2641,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Re.actor",
@@ -2549,7 +2664,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Trackadero",
@@ -2571,7 +2687,8 @@
     "is_major_investor": true,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "TYMY",
@@ -2593,7 +2710,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Boomerangme",
@@ -2615,7 +2733,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Touch",
@@ -2637,7 +2756,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Evocargo",
@@ -2659,7 +2779,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "QBoard",
@@ -2681,7 +2802,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "МАИНД КРАФТ",
@@ -2703,7 +2825,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Visrobo Navigation",
@@ -2725,7 +2848,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "QSpace",
@@ -2747,7 +2871,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Gogym",
@@ -2769,7 +2894,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "SimpleOne",
@@ -2791,7 +2917,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Napsy",
@@ -2813,7 +2940,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Phishman",
@@ -2835,7 +2963,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Antifreeze Games",
@@ -2857,7 +2986,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Рюкзак",
@@ -2879,7 +3009,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "«Чисто-Чисто»",
@@ -2901,7 +3032,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "«Убиратор»",
@@ -2923,7 +3055,8 @@
     "is_major_investor": false,
     "category": "domestic",
     "status": "active",
-    "confidence": "low"
+    "confidence": "low",
+    "is_early_stage": false
   },
   {
     "name": "Plata",
@@ -2945,7 +3078,8 @@
     "is_major_investor": false,
     "category": "diaspora",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Food Rocket",
@@ -2967,7 +3101,8 @@
     "is_major_investor": false,
     "category": "diaspora",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "YallaMarket",
@@ -2989,7 +3124,8 @@
     "is_major_investor": false,
     "category": "diaspora",
     "status": "active",
-    "confidence": "medium"
+    "confidence": "medium",
+    "is_early_stage": false
   },
   {
     "name": "Plurio (ex-Elly Analytics)",
@@ -3011,6 +3147,2054 @@
     "is_major_investor": false,
     "category": "diaspora",
     "status": "active",
+    "confidence": "medium",
+    "is_early_stage": false
+  },
+  {
+    "name": "СКБ Контур",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 1988,
+    "rev": 48300,
+    "rev_year": 2025,
+    "growth": 19.6,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Разработчик SaaS-сервисов для бизнеса (Контур.Экстерн, Диадок, Эльба, отчётность и ЭДО).",
+    "note": null,
+    "source_name": "CNews",
+    "source_url": "https://www.cnews.ru/news/line/2026-03-05_vyruchka_skb_kontur_v_2025",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Группа Астра",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 2005,
+    "rev": 20300,
+    "rev_year": 2025,
+    "growth": 18,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Разработчик операционной системы Astra Linux и экосистемы инфраструктурного ПО для импортозамещения.",
+    "note": "Рост существенно замедлился по сравнению с 2022-2023 годами (тогда были кратные темпы).",
+    "source_name": "Smartlab / Ведомости",
+    "source_url": "https://smartlab.news/read/184700-gruppa-astra-msfo-za-2025-god-cistaia-pribyl-na-urovne-proslogo-goda-rub6-mlrd-vyrucka-rub203-mlrd-18-gg-otgruzki-rub218-mlrd-9-gg",
+    "is_ipo": true,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Positive Technologies",
+    "sector": "Кибербезопасность",
+    "founded": 2002,
+    "rev": 30900,
+    "rev_year": 2025,
+    "growth": 26,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Один из крупнейших российских разработчиков решений для кибербезопасности и защиты от кибератак.",
+    "note": "Показатель отгрузок вырос сильнее выручки — на 40%, до 33,6 млрд руб.",
+    "source_name": "Коммерсантъ",
+    "source_url": "https://www.kommersant.ru/doc/8571319",
+    "is_ipo": true,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Диасофт",
+    "sector": "Fintech и Insurtech",
+    "founded": 1991,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": null,
+    "growth_note": "Рост выручки резко замедлился в 2025 году: I кв. +12% г/г, но 9 месяцев — только +1,2% г/г; компания скорректировала прогнозы.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший независимый разработчик ПО для банков и финансовых организаций РФ.",
+    "note": "Показательный пример компании, чей бурный рост после IPO 2024 года резко замедлился.",
+    "source_name": "Investing.com",
+    "source_url": "https://ru.investing.com/news/general-news/article-3108703",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
     "confidence": "medium"
+  },
+  {
+    "name": "IVA Technologies",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 2007,
+    "rev": 3330,
+    "rev_year": 2024,
+    "growth": 36,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Разработчик экосистемы корпоративных коммуникаций — видеоконференцсвязь, IP-АТС, мессенджер.",
+    "note": "Год основания указан приблизительно, точная дата в открытых источниках не подтверждена явно.",
+    "source_name": "Interfax",
+    "source_url": "https://www.interfax.ru/business/1011396",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Softline",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 1993,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": null,
+    "growth_note": "Оборот компании вырос примерно на треть в 2025 году вместе с ростом всего ИТ-рынка.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупный ИТ-интегратор и дистрибьютор программного обеспечения и оборудования.",
+    "note": null,
+    "source_name": "ComNews",
+    "source_url": "https://www.comnews.ru/content/238562/2025-04-01/2025-w14/1008/oborot-softline-vyros-tret-vmeste-it-rynkom",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "F6 (бывшая Group-IB)",
+    "sector": "Кибербезопасность",
+    "founded": 2003,
+    "rev": 3880,
+    "rev_year": 2024,
+    "growth": 166,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Российский разработчик решений для защиты от киберугроз, ранее Group-IB / F.A.C.C.T.",
+    "note": "Компания несколько раз меняла название после ареста основателя Ильи Сачкова и продажи российского бизнеса менеджменту в 2023 году; высокий процент роста частично объясняется низкой базой после реструктуризации.",
+    "source_name": "TAdviser",
+    "source_url": "https://www.tadviser.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F:Group-IB_%D0%93%D1%80%D1%83%D0%BF%D0%BF%D0%B0_%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%BE%D0%B9_%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D0%BE%D1%81%D1%82%D0%B8",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "ГЕРОФАРМ",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 2004,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": 99.5,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший российский производитель инсулинов и препаратов для эндокринологии.",
+    "note": "Признана самой быстрорастущей фармкомпанией России в 2024 году, рост ускорился и в 2025.",
+    "source_name": "РБК Компании",
+    "source_url": "https://companies.rbc.ru/news/lxc1HI59nj/gerofarm-uvelichil-vyiruchku-na-995-v-2025-godu/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Промомед",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 1997,
+    "rev": 37600,
+    "rev_year": 2025,
+    "growth": 75,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Биофармацевтическая компания полного цикла, лидер в сегментах эндокринологии и онкологии (аналоги семаглутида и др.).",
+    "note": "В разных источниках цифра роста колеблется от 72,6% до 78% в зависимости от периода.",
+    "source_name": "Коммерсантъ",
+    "source_url": "https://www.kommersant.ru/doc/8462099",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Озон Фармацевтика",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 2001,
+    "rev": 31600,
+    "rev_year": 2025,
+    "growth": 24,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Один из крупнейших российских производителей дженериков.",
+    "note": "Не связана с маркетплейсом Ozon.ru — совпадение названий.",
+    "source_name": "zdrav.expert",
+    "source_url": "https://zdrav.expert/index.php/%D0%A1%D1%82%D0%B0%D1%82%D1%8C%D1%8F:%D0%A4%D0%B8%D0%BD%D0%B0%D0%BD%D1%81%D0%BE%D0%B2%D1%8B%D0%B5_%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D0%B8_%D0%9E%D0%B7%D0%BE%D0%BD_%D0%A4%D0%B0%D1%80%D0%BC%D0%B0%D1%86%D0%B5%D0%B2%D1%82%D0%B8%D0%BA%D0%B0",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Велфарм Групп",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 2009,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Заняла 2-е место в рейтинге быстрорастущих технологических компаний «Техуспех-2025».",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Российский фармацевтический производитель.",
+    "note": "Год основания указан по косвенным данным (регистрационные номера), не подтверждён отдельным источником.",
+    "source_name": "inpharm.ru",
+    "source_url": "https://www.inpharm.ru/novosti/5-sredi-laureatov-reytinga-tehuspeh-2025-farmkompanii.html",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "ИНВИТРО",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 1998,
+    "rev": 16800,
+    "rev_year": null,
+    "growth": 17,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейшая сеть медицинских лабораторий и клиник в России.",
+    "note": "Год данных не уточнён источником точно; цифра может относиться к одному из юрлиц группы, а не ко всей выручке холдинга.",
+    "source_name": "zdrav.expert",
+    "source_url": "https://zdrav.expert/index.php/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F:%D0%98%D0%9D%D0%92%D0%98%D0%A2%D0%A0%D0%9E_%D0%9D%D0%B5%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%B0%D1%8F_%D0%BB%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%B8%D1%8F",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Мать и дитя (MD Medical Group)",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 2006,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": 27,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Сеть частных клиник и роддомов, специализация на женском и детском здоровье.",
+    "note": "Рост во многом обусловлен M&A — покупкой сетей «Эксперт» и «Здравица» (Новосибирск).",
+    "source_name": "Коммерсантъ",
+    "source_url": "https://www.kommersant.ru/doc/7926500",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Артген Биотех",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 2003,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": 13,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Биотехнологический холдинг (генетические тесты, клеточные и генные технологии), материнская компания Genetico.",
+    "note": "Ранее — Институт стволовых клеток человека.",
+    "source_name": "artgen.ru",
+    "source_url": "https://artgen.ru/media-center/rezultaty-deyatelnosti-artgen-bioteh-za-2025-god-po-msfo/",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Henderson",
+    "sector": "E-commerce и ритейл-тех",
+    "founded": 1996,
+    "rev": 23900,
+    "rev_year": 2025,
+    "growth": 14.6,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Сеть магазинов мужской одежды и аксессуаров.",
+    "note": "Чистая прибыль при этом снизилась (~-23%), несмотря на рост выручки.",
+    "source_name": "Коммерсантъ",
+    "source_url": "https://www.kommersant.ru/doc/8362666",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Hoff",
+    "sector": "E-commerce и ритейл-тех",
+    "founded": 2011,
+    "rev": 81000,
+    "rev_year": 2023,
+    "growth": 16,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупная розничная сеть гипермаркетов мебели и товаров для дома.",
+    "note": "Более свежих данных о выручке (2024-2025) в открытых источниках не найдено; чистая прибыль по РСБУ в 2024 упала почти в 9 раз.",
+    "source_name": "РИА Недвижимость",
+    "source_url": "https://realty.ria.ru/20240125/hoff-1923404873.html",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "ВсеИнструменты.ру",
+    "sector": "E-commerce и ритейл-тех",
+    "founded": 2006,
+    "rev": 182900,
+    "rev_year": 2025,
+    "growth": 7.5,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший российский интернет-магазин инструментов и товаров для дома/дачи.",
+    "note": "Темп роста заметно ниже, чем в предыдущие годы.",
+    "source_name": "Retail.ru",
+    "source_url": "https://www.retail.ru/news/vyruchka-vseinstrumenty-ru-dostigla-182-9-mlrd-rubley-po-itogam-2025-goda-31-marta-2026-276142/",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Золотое яблоко",
+    "sector": "E-commerce и ритейл-тех",
+    "founded": 2013,
+    "rev": 205000,
+    "rev_year": 2025,
+    "growth": 33,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейшая российская сеть бьюти-супермаркетов (парфюмерия, косметика).",
+    "note": null,
+    "source_name": "RETAILER.ru",
+    "source_url": "https://retailer.ru/vyruchka-zolotogo-jabloka-v-2025-godu-vyrosla-na-tret-i-prevysila-205-mlrd-rublej/",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "ВкусВилл",
+    "sector": "E-commerce и ритейл-тех",
+    "founded": 2009,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": 9.7,
+    "growth_note": "Открыли 670 новых магазинов и дарксторов за год; 53% выручки уже приходится на доставку.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Сеть магазинов и сервис доставки здорового питания.",
+    "note": null,
+    "source_name": "Retail.ru",
+    "source_url": "https://www.retail.ru/news/v-2025-godu-vyruchka-seti-vkusvill-vyrosla-na-9-73-12-fevralya-2026-274420/",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "DNS",
+    "sector": "E-commerce и ритейл-тех",
+    "founded": 1998,
+    "rev": 781000,
+    "rev_year": 2024,
+    "growth": null,
+    "growth_note": "Выручка второй год подряд рекордная (781 млрд руб.), но чистая прибыль упала почти на 22%.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейшая российская сеть магазинов электроники и бытовой техники.",
+    "note": "Рост выручки не сопровождается ростом прибыли — сигнал возможного давления на маржинальность.",
+    "source_name": "TAdviser",
+    "source_url": "https://www.tadviser.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F:DNS_Digital_Store_(%D0%9A%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D1%8B%D0%B9_%D1%86%D0%B5%D0%BD%D1%82%D1%80_%D0%94%D0%9D%D0%A1)",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Мосгорломбард (МГКЛ)",
+    "sector": "Fintech и Insurtech",
+    "founded": 1993,
+    "rev": 32000,
+    "rev_year": 2025,
+    "growth": null,
+    "growth_note": "Консолидированная выручка 32 млрд руб., прибыль 724 млн руб.",
+    "funding_rub": 303,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейшая сеть ломбардов и скупки драгметаллов в России.",
+    "note": "Исторически ведёт родословную от государственного ломбарда 1924 года, но современное частное юрлицо создано в 1990-е (точный год основания не подтверждён отдельным источником).",
+    "source_name": "Smart-lab / Ведомости",
+    "source_url": "https://www.tbank.ru/invest/social/profile/SWJ/9611a157-c0b8-422c-ab40-8fa76e17b828/",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "Novabev Group (Белуга)",
+    "sector": "FoodTech",
+    "founded": 1999,
+    "rev": 149300,
+    "rev_year": 2024,
+    "growth": 10,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший российский производитель и дистрибьютор алкогольной продукции (водка «Белуга», сеть «ВинЛаб»).",
+    "note": "Точный отчётный год в источнике указан неявно.",
+    "source_name": "TAdviser",
+    "source_url": "https://www.tadviser.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F:%D0%9D%D0%BE%D0%B2%D0%B0%D0%91%D0%B5%D0%B2_%D0%93%D1%80%D1%83%D0%BF_(%D1%80%D0%B0%D0%BD%D0%B5%D0%B5_%D0%91%D0%B5%D0%BB%D1%83%D0%B3%D0%B0_%D0%93%D1%80%D1%83%D0%BF)_Novabev_Group",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Группа Черкизово",
+    "sector": "FoodTech",
+    "founded": 2005,
+    "rev": 288700,
+    "rev_year": 2025,
+    "growth": 11.4,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший российский производитель мяса птицы и свинины.",
+    "note": "Производственные мощности выросли более чем на треть в 2025 году, несмотря на снижение прибыли.",
+    "source_name": "Коммерсантъ",
+    "source_url": "https://www.kommersant.ru/doc/8462753",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Абрау-Дюрсо",
+    "sector": "FoodTech",
+    "founded": 2006,
+    "rev": 21200,
+    "rev_year": 2025,
+    "growth": 7.6,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший российский производитель игристых вин.",
+    "note": "2006 год — год начала современной истории группы под управлением Б. Титова; исторический завод основан в 1870 году.",
+    "source_name": "Interfax",
+    "source_url": "https://www.interfax.ru/business/1086569",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "ЭФКО",
+    "sector": "AgroTech",
+    "founded": 1994,
+    "rev": 336000,
+    "rev_year": 2025,
+    "growth": 29,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Агрохолдинг полного цикла: растительные масла, жиры, альтернативные белки (в т.ч. биотех-направление).",
+    "note": "При росте выручки на 29% группа осталась без прибыли в 2025 году, долговая нагрузка приближается к 300 млрд руб.",
+    "source_name": "AKM.RU",
+    "source_url": "https://www.akm.ru/analyt/gruppa_efko_pri_roste_vyruchki_na_29_ostalas_bez_pribyli_v_2025_godu/",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Русагро",
+    "sector": "AgroTech",
+    "founded": 1995,
+    "rev": 423800,
+    "rev_year": 2024,
+    "growth": 16,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Один из крупнейших агрохолдингов России (масложировая, сахарная, мясная, сельскохозяйственная продукция).",
+    "note": "Отчётный год в источнике указан неточно (возможно, 2024 или 2025); есть корпоративные и юридические сложности, влияющие на дивиденды.",
+    "source_name": "TAdviser",
+    "source_url": "https://www.tadviser.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F:%D0%A0%D1%83%D1%81%D0%B0%D0%B3%D1%80%D0%BE_%D0%93%D0%9A",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Мираторг",
+    "sector": "AgroTech",
+    "founded": 1995,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": null,
+    "growth_note": "Экспорт мясной продукции вырос на 5% в 2025 году, начаты поставки свинины на Филиппины.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший производитель говядины и свинины в России.",
+    "note": "Рост скромный и в основном экспортный; данных о росте общей выручке за 2025 год не найдено.",
+    "source_name": "emeat.ru",
+    "source_url": "https://emeat.ru/novosti/miratorg-v-2025-g.-uvelichil-eksport-myasnoj-produkczii-na-5-nachal-postavki-svininyi-na-filippinyi",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "Группа Самолет",
+    "sector": "PropTech",
+    "founded": 2012,
+    "rev": 366800,
+    "rev_year": 2025,
+    "growth": 8,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Один из крупнейших девелоперов жилой недвижимости в России.",
+    "note": "Темп роста замедлился на фоне сворачивания льготной ипотеки.",
+    "source_name": "TAdviser",
+    "source_url": "https://www.tadviser.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F:%D0%A1%D0%B0%D0%BC%D0%BE%D0%BB%D0%B5%D1%82_%D0%93%D1%80%D1%83%D0%BF%D0%BF%D0%B0_%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D0%B9",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "ТехноНИКОЛЬ",
+    "sector": "Промышленность и стройматериалы",
+    "founded": 1992,
+    "rev": null,
+    "rev_year": 2024,
+    "growth": 21,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший российский производитель кровельных, изоляционных и других строительных материалов, экспорт в десятки стран.",
+    "note": null,
+    "source_name": "Plastinfo",
+    "source_url": "https://plastinfo.ru/information/news/54712_29.01.2025/",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Эталон Групп",
+    "sector": "PropTech",
+    "founded": 1987,
+    "rev": 130900,
+    "rev_year": 2024,
+    "growth": 44,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": "АФК «Система» (мажоритарный акционер)",
+    "desc": "Один из старейших девелоперов жилой недвижимости в России.",
+    "note": "Несмотря на рост выручки на 44%, компания получила чистый убыток 6,9 млрд руб.",
+    "source_name": "Smart-lab",
+    "source_url": "https://smart-lab.ru/blog/news/1132010.php",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": true,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Соллерс",
+    "sector": "Автомобильная промышленность",
+    "founded": 2002,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": 29,
+    "growth_note": "Рост во многом на фоне локализации производства после ухода Ford и других иностранных брендов.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Российский автопроизводитель (УАЗ, коммерческий транспорт, локализация бывших иностранных площадок).",
+    "note": "Основана в 2002 году как «Северсталь-Авто», переименована в Sollers в 2009.",
+    "source_name": "Samaraonline24",
+    "source_url": "https://samaraonline24.ru/avto/view/vyrucka-avtoproizvoditela-sollers-uvelicilas-na-29",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "СДЭК",
+    "sector": "Логистика и мобильность",
+    "founded": 2000,
+    "rev": 47800,
+    "rev_year": 2025,
+    "growth": 14.4,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейшая российская служба экспресс-доставки с международной экспансией (СНГ, Китай, Турция и др.).",
+    "note": null,
+    "source_name": "CDEK / TAdviser",
+    "source_url": "https://www.cdek.ru/ru/press/view/2026-04-07-vyrucka-sdek-po-itogam-2025-goda-vyrosla-na-14/",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Деловые Линии",
+    "sector": "Логистика и мобильность",
+    "founded": 2001,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": null,
+    "growth_note": "Спрос на международные автоперевозки вырос в 1,5 раза в 2025 году.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Один из крупнейших российских грузоперевозчиков сборных грузов.",
+    "note": "Финансовых данных о выручке компании (частная, не раскрывает МСФО) не найдено.",
+    "source_name": "РИА Новости",
+    "source_url": "https://ria.ru/20250226/avtoperevozki-2001728573.html",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "Делимобиль",
+    "sector": "Логистика и мобильность",
+    "founded": 2015,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": 11,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший каршеринговый сервис в России.",
+    "note": "Автопарк по итогам года сократился до 27,9 тыс. авто; в 2024 году рост выручки был выше — 34%.",
+    "source_name": "Коммерсантъ",
+    "source_url": "https://www.kommersant.ru/doc/8400946",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Ренессанс Страхование",
+    "sector": "Fintech и Insurtech",
+    "founded": 1997,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": 21,
+    "growth_note": "Рост объёма страховых премий (не выручки в чистом виде); рекордная чистая прибыль по итогам года.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Одна из крупнейших российских страховых групп.",
+    "note": null,
+    "source_name": "Компания «Ренессанс страхование»",
+    "source_url": "https://www.renlife.ru/company/news/corporate/v-2025-godu-gruppa-renessans-strakhovanie-uvelichila-obem-strakhovykh-premiy/",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Займер",
+    "sector": "Fintech и Insurtech",
+    "founded": 2013,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": null,
+    "growth_note": "Чистая прибыль за 9 мес. 2025 выросла на 31% г/г, до 1,376 млрд руб.; лидер по рентабельности активов среди публичных МФО (17,2%).",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Один из крупнейших российских онлайн-сервисов микрозаймов.",
+    "note": "Доходы находятся под давлением из-за ужесточения регулирования МФО.",
+    "source_name": "Smart-lab",
+    "source_url": "https://smart-lab.ru/blog/news/1224083.php",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Т-Банк (бывший Тинькофф Банк)",
+    "sector": "Fintech и Insurtech",
+    "founded": 2006,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": null,
+    "growth_note": "Чистая прибыль по МСФО выросла в 2,2 раза, почти до 200 млрд руб.; более 54 млн клиентов, каждый шестой рубль розничного оборота страны.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший российский цифровой банк и финтех-экосистема.",
+    "note": null,
+    "source_name": "Ведомости",
+    "source_url": "https://www.vedomosti.ru/investments/news/2026/03/27/1185933-pribil-t-banka",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "ЦИАН (CIAN)",
+    "sector": "PropTech",
+    "founded": 2001,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": 16.7,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший российский онлайн-сервис объявлений о недвижимости.",
+    "note": null,
+    "source_name": "Альфа Инвестор",
+    "source_url": "https://alfabank.ru/alfa-investor/t/tsian-uvelichil-vyruchku-na-16-7-po-itogam-goda/",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "ivi",
+    "sector": "Медиа, гейминг и соцсети",
+    "founded": 2010,
+    "rev": 31300,
+    "rev_year": 2024,
+    "growth": 35,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Один из крупнейших российских онлайн-кинотеатров.",
+    "note": null,
+    "source_name": "RB.RU",
+    "source_url": "https://rb.ru/news/ivi-income-growth/",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "HeadHunter",
+    "sector": "HR-tech",
+    "founded": 2000,
+    "rev": 41200,
+    "rev_year": 2025,
+    "growth": 4,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейшая российская платформа по поиску работы и подбору персонала.",
+    "note": "Рост резко замедлился (в 2024 было +34%), но компания расширяется через M&A — купила 51% сервиса Happy Job в августе 2026 года.",
+    "source_name": "Ведомости",
+    "source_url": "https://www.vedomosti.ru/investments/news/2026/03/06/1181163-viruchka-headhunter",
+    "is_ipo": true,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Wildberries",
+    "sector": "E-commerce и ритейл-тех",
+    "founded": 2004,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": null,
+    "growth_note": "Оборот (GMV) вырос примерно вдвое, до 6,1 трлн руб. в 2025 году, после объединения с холдингом Russ.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейший российский маркетплейс.",
+    "note": "Цифра — оборот (GMV), а не выручка компании; данные усложнены объединением с Russ.",
+    "source_name": "RB.RU",
+    "source_url": "https://rb.ru/news/wildberries-raskryla-finansovye-pokazateli-za-2025-god-oborot-vyros-vdvoe-do-61-trln/",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Skyeng",
+    "sector": "EdTech",
+    "founded": 2012,
+    "rev": 8100,
+    "rev_year": null,
+    "growth": 26.6,
+    "growth_note": null,
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупнейшая российская онлайн-школа иностранных языков и образовательных курсов.",
+    "note": "Точный отчётный год не уточнён источником (вероятно, 2023 или 2024); ранее компания планировала IPO.",
+    "source_name": "TAdviser",
+    "source_url": "https://www.tadviser.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F:%D0%9E%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8_(Skyeng)_%D0%9E%D0%90%D0%9D%D0%9E_%D0%94%D0%9F%D0%9E_%D0%A1%D0%BA%D0%B0%D0%B5%D0%BD%D0%B3",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "ЭР-Телеком Холдинг",
+    "sector": "Медиа, гейминг и соцсети",
+    "founded": 2001,
+    "rev": null,
+    "rev_year": 2025,
+    "growth": 12,
+    "growth_note": "Чистая прибыль по МСФО за 2025 год выросла на 85%, до 2,6 млрд руб. (данные по выручке — за I кв. 2025).",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": null,
+    "desc": "Крупный региональный телеком-оператор (бренд «Дом.ру»), интернет, ТВ, связь для бизнеса.",
+    "note": null,
+    "source_name": "ComNews / Fomag",
+    "source_url": "https://fomag.ru/news-streem/chistaya-pribyl-er-telekom-kholdinga-po-msfo-za-2025-g-vyrosla-na-85-do-2-6-mlrd-rub/",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Melon Fashion Group",
+    "sector": "E-commerce и ритейл-тех",
+    "founded": 2005,
+    "rev": 100000,
+    "rev_year": 2025,
+    "growth": 22,
+    "growth_note": "Открыла 47 новых магазинов только в первом полугодии 2025 года.",
+    "funding_rub": null,
+    "funding_note": null,
+    "investors": "АФК «Система» (47,7% акций)",
+    "desc": "Владелец брендов одежды Zarina, befree, Love Republic, Idol.",
+    "note": "Одна из немногих крупных fashion-ритейлеров с двузначным ростом выручки на фоне ухода западных брендов.",
+    "source_name": "TAdviser",
+    "source_url": "https://www.tadviser.ru/index.php/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F:%D0%9C%D1%8D%D0%BB%D0%BE%D0%BD_%D0%A4%D1%8D%D1%88%D0%BD_%D0%93%D1%80%D1%83%D0%BF_(%D0%B1%D1%80%D0%B5%D0%BD%D0%B4%D1%8B_Zarina,_befree,_Love_Republic)_Melon_Fashion_Group",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": true,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "VisioMed.AI",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": null,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Пилотная стадия, продукт — система поддержки решений для офтальмологов",
+    "funding_rub": 2,
+    "funding_note": "Приз акселератора: 2 млн руб + грант Yandex Cloud 500 тыс. руб",
+    "investors": "Yandex AI Startup Lab",
+    "desc": "Система анализирует снимки сетчатки глаза и помогает выявлять заболевания на ранней стадии",
+    "note": "Один из лучших проектов акселератора «Яндекса» для молодых учёных (апрель 2026)",
+    "source_name": "Яндекс — новости компании",
+    "source_url": "https://yandex.ru/company/news/29-04-2026-03",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Gradius",
+    "sector": "Медиа, гейминг и соцсети",
+    "founded": null,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Продукт на стадии внедрения после акселератора, коммерческая выручка не раскрыта",
+    "funding_rub": 3,
+    "funding_note": "Приз акселератора: 3 млн руб + грант Yandex Cloud 1 млн руб",
+    "investors": "Yandex AI Startup Lab",
+    "desc": "Встраивает контекстную рекламу в ответы нейросетей на основе анализа пользовательских данных в реальном времени",
+    "note": "Команда студентов НИУ ВШЭ и НГТУ, победитель акселератора «Яндекса»",
+    "source_name": "Яндекс — новости компании",
+    "source_url": "https://yandex.ru/company/news/29-04-2026-03",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Barigadam",
+    "sector": "EdTech",
+    "founded": null,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Образовательный продукт, выручки на момент публикации нет",
+    "funding_rub": 1,
+    "funding_note": "Приз акселератора: 1 млн руб + грант Yandex Cloud 250 тыс. руб",
+    "investors": "Yandex AI Startup Lab",
+    "desc": "Образовательный робототехнический конструктор с умными сенсорами собственной разработки для школьников",
+    "note": "Команда студентов МГУ и Московского Политеха, победитель акселератора «Яндекса»",
+    "source_name": "Яндекс — новости компании",
+    "source_url": "https://yandex.ru/company/news/29-04-2026-03",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "SANCE.AI",
+    "sector": "AI и Deep Tech",
+    "founded": null,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Ранняя стадия, платформа для создания AI-агентов продаж и поддержки клиентов",
+    "funding_rub": 1,
+    "funding_note": "Приз акселератора: 1 млн руб + грант Yandex Cloud 250 тыс. руб",
+    "investors": "Yandex AI Startup Lab",
+    "desc": "Сервис создания AI-агентов для продаж и клиентской поддержки с конструктором, инфраструктурой и аналитикой",
+    "note": "Победитель акселератора «Яндекса» для высокотехнологичных стартапов",
+    "source_name": "Яндекс — новости компании",
+    "source_url": "https://yandex.ru/company/news/29-04-2026-03",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Anix",
+    "sector": "AI и Deep Tech",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Продукт на ранней стадии, выручка не раскрыта",
+    "funding_rub": 9,
+    "funding_note": "9+ млн руб плюс поддержка акселератора (2023)",
+    "investors": "акселератор (не назван)",
+    "desc": "Нейросеть для автоматической генерации кадров анимации",
+    "note": "Попал в рейтинг RB.RU как один из быстрорастущих технологических стартапов",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Fabula AI",
+    "sector": "AI и Deep Tech",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "2 млн+ пользователей продукта, выручка не раскрыта",
+    "funding_rub": 5,
+    "funding_note": "5 млн руб от блогера Евгения Чебаткова (январь 2023)",
+    "investors": "частный инвестор (блогер)",
+    "desc": "Мультиплатформенный сервис для генерации и редактирования изображений с помощью ИИ",
+    "note": "Быстрый набор пользовательской базы (2 млн+) на минимальных инвестициях",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "NeyroHudozhnik",
+    "sector": "AI и Deep Tech",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта, продукт на стадии роста пользовательской базы",
+    "funding_rub": 10,
+    "funding_note": "10 млн руб от фонда Daily Challenge (2024)",
+    "investors": "Daily Challenge fund",
+    "desc": "Нейросеть для генерации изображений с упрощённым интерфейсом",
+    "note": "Инвестиция отраслевого фонда на раннем этапе развития продукта",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "DetAFake",
+    "sector": "Кибербезопасность",
+    "founded": 2024,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Продукт на стадии пилотов и конкурсов, коммерческой выручки нет",
+    "funding_rub": null,
+    "funding_note": "Сумма инвестиций не раскрыта; статус — финалист конкурса eXit и Gravity Prize",
+    "investors": "не раскрыты",
+    "desc": "Технология детекции дипфейков и синтетических медиа с точностью 94–99%",
+    "note": "Совсем молодой проект (2024) с сильным технологическим позиционированием, признание на профильных конкурсах",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "Metranpazh",
+    "sector": "AI и Deep Tech",
+    "founded": 2022,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 10,
+    "funding_note": "10 млн руб от частного инвестора (2024)",
+    "investors": "частный инвестор",
+    "desc": "AI-платформа для автоматической вёрстки печатных и цифровых изданий",
+    "note": "Нишевой продукт с частным seed-финансированием",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Ocenka.tech",
+    "sector": "PropTech",
+    "founded": 2022,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 15,
+    "funding_note": "15 млн руб от бизнес-ангелов (май 2024)",
+    "investors": "бизнес-ангелы",
+    "desc": "Автоматизированная оценка недвижимости с помощью ИИ",
+    "note": "Привлекла раунд от группы бизнес-ангелов на раннем этапе",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "JVO",
+    "sector": "E-commerce и ритейл-тех",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Микрогрант Сколково — самая ранняя институциональная стадия, выручка не раскрыта",
+    "funding_rub": 0.5,
+    "funding_note": "Микрогрант Сколково 500 тыс. руб (2024)",
+    "investors": "Фонд «Сколково»",
+    "desc": "AI-сервис для продвижения и оптимизации процессов продавцов на маркетплейсах",
+    "note": "Получатель микрогранта Сколково — подтверждённая ранняя стадия",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Retry",
+    "sector": "EdTech",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "300+ пользователей платформы, выручка не раскрыта",
+    "funding_rub": 9.1,
+    "funding_note": "9,1 млн руб через brainbox.VC (10% доли), весна 2024",
+    "investors": "brainbox.VC (краудинвестинг)",
+    "desc": "RPG-платформа для обучения 3D-графике и игровому дизайну",
+    "note": "Ранний краудинвестинг-раунд при небольшой, но растущей пользовательской базе",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Care my baby",
+    "sector": "EdTech",
+    "founded": 2021,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта явно",
+    "funding_rub": 9,
+    "funding_note": "9 млн руб от Moscow Seed Fund (март 2024); 11% доли продано в октябре 2024",
+    "investors": "Moscow Seed Fund",
+    "desc": "Платформа персонализированного обучения детей 2–10 лет (языки, шахматы, музыка, рисование)",
+    "note": "Профильный seed-фонд в названии инвестора — прямое подтверждение стадии",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Metacraft",
+    "sector": "Медиа, гейминг и соцсети",
+    "founded": 2024,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Игра в раннем доступе (early access), коммерческая выручка не раскрыта",
+    "funding_rub": 8.5,
+    "funding_note": "$94,2 тыс. от brainbox.VC при оценке компании 150 млн руб (лето 2024)",
+    "investors": "brainbox.VC (краудинвестинг)",
+    "desc": "Sci-fi онлайн-игра на собственном Java-движке",
+    "note": "Очень молодой проект (2024) с уже привлечённым краудинвестинг-раундом",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Find The Job",
+    "sector": "HR-tech",
+    "founded": 2024,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Продукт запущен в том же году, что и раунд — классический pre-seed",
+    "funding_rub": 6.61,
+    "funding_note": "6,61 млн руб от 343 инвесторов через brainbox.VC (2024)",
+    "investors": "brainbox.VC (краудинвестинг, 343 инвестора)",
+    "desc": "AI-сервис, автоматизирующий поиск работы и составление резюме",
+    "note": "Основан и профинансирован в один год — самая ранняя стадия в выборке",
+    "source_name": "RB.RU — RB Choice 100 / RB.RU новости",
+    "source_url": "https://rb.ru/news/startap-find-job-brainboxvc/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "EmplyFlow",
+    "sector": "HR-tech",
+    "founded": 2024,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Финалист акселератора MGIMO Ventures, коммерческой выручки нет",
+    "funding_rub": null,
+    "funding_note": "Сумма инвестиций не раскрыта",
+    "investors": "не раскрыты",
+    "desc": "AI-платформа для оценки компетенций и построения карьерных траекторий сотрудников",
+    "note": "Финалист MGIMO Ventures и участник карты стартапов RB.RU AI-map",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "Ulybnis AI",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 10,
+    "funding_note": "10 млн руб от фонда «Восход» и бизнес-ангела (2024)",
+    "investors": "фонд «Восход» + бизнес-ангел",
+    "desc": "AI-приложение для выявления стоматологических заболеваний по фотографии",
+    "note": "Институциональный инвестор (Восход) на раннем этапе",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Neuro-Sputnik",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 2022,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Ранняя грантовая поддержка, выручка не раскрыта",
+    "funding_rub": 1.5,
+    "funding_note": "1,5 млн руб — микрогранты Сколково (2024)",
+    "investors": "Фонд «Сколково»",
+    "desc": "Программно-аппаратный комплекс для восстановления двигательных функций после травм",
+    "note": "Резидент Сколково с профильными микрогрантами",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Brainstart",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 2022,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 2,
+    "funding_note": "~2 млн руб — гранты Сколково (2024)",
+    "investors": "Фонд «Сколково»",
+    "desc": "Устройство для визуализации мозговой активности в терапии и спорте",
+    "note": "Аппаратный нейротех-продукт на грантовом финансировании Сколково",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Reatekh",
+    "sector": "HealthTech, MedTech и BioTech",
+    "founded": 2024,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Совсем молодой проект, выручки нет",
+    "funding_rub": 1,
+    "funding_note": "1 млн руб от Агентства инноваций Москвы (2024)",
+    "investors": "Агентство инноваций Москвы",
+    "desc": "Пневматическая крио-компрессионная система для восстановления после нагрузок",
+    "note": "Основан и профинансирован в 2024 году — классический pre-seed",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Lexis Voice",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 2024,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Пилот с Ростелекомом, коммерческой выручки нет",
+    "funding_rub": null,
+    "funding_note": "Сумма не раскрыта; топ-5 акселератора МФТИ «Физтех.Идея+»",
+    "investors": "МФТИ «Физтех.Идея+»",
+    "desc": "AI-тренажёр навыков холодных звонков с ИИ-коучем",
+    "note": "Пилот с крупным корпоративным заказчиком (Ростелеком) на самой ранней стадии",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "Selvery",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 2021,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": null,
+    "funding_note": "Сумма не раскрыта; победитель акселератора Сколково BuildUp-2023",
+    "investors": "Фонд «Сколково» (акселератор BuildUp)",
+    "desc": "SaaS-платформа для динамических продающих презентаций",
+    "note": "Победа в отраслевом акселераторе Сколково — сигнал качества продукта",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Panometrik",
+    "sector": "Робототехника, hardware и космос",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 4,
+    "funding_note": "4 млн руб от Фонда содействия инновациям (2024)",
+    "investors": "Фонд содействия инновациям; резидент Сколково",
+    "desc": "3D-сканирование методом структурированного света для строительства и креативных индустрий",
+    "note": "Резидент Сколково с грантовым финансированием ФСИ",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "KiberTsekh",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 10.7,
+    "funding_note": "10,7 млн руб через brainbox.VC (2024)",
+    "investors": "brainbox.VC (краудинвестинг)",
+    "desc": "AI-платформа для планирования и оптимизации производственных процессов",
+    "note": "Краудинвестинг-раунд на раннем этапе развития промышленного AI-продукта",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Arigami",
+    "sector": "AI и Deep Tech",
+    "founded": 2024,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Финалист конкурсов, коммерческой выручки нет",
+    "funding_rub": null,
+    "funding_note": "Сумма не раскрыта; финалист Sber500 и конкурса медиаоборудования",
+    "investors": "не раскрыты",
+    "desc": "AR 3D-виджеты для визуализации товаров в онлайн-продажах",
+    "note": "Молодой проект (2024) с признанием со стороны крупных акселераторов",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "SalesAI",
+    "sector": "AI и Deep Tech",
+    "founded": 2022,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 8,
+    "funding_note": "8 млн руб от стартап-студии МФТИ (2024)",
+    "investors": "Стартап-студия МФТИ",
+    "desc": "AI-оценка качества звонков, встроенная в CRM-системы",
+    "note": "Финансирование от университетской стартап-студии МФТИ",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Dresscode.ai",
+    "sector": "AI и Deep Tech",
+    "founded": 2024,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Пилотное внедрение в торговых центрах Москвы, выручка не раскрыта",
+    "funding_rub": 330,
+    "funding_note": "Seed-раунд $3,7 млн от частных инвесторов (оценка в рублях приблизительная)",
+    "investors": "частные инвесторы",
+    "desc": "Виртуальная примерочная на основе генеративного ИИ",
+    "note": "Один из крупнейших публично объявленных seed-раундов 2025 года в России",
+    "source_name": "tproger.ru — Топ-10 IT-стартапов 2025",
+    "source_url": "https://tproger.ru/articles/kuda-investory-zanesli-dengi-v-2025---top-10-it-startapov-rossii",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Target AI (Cashee)",
+    "sector": "AI и Deep Tech",
+    "founded": null,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 131,
+    "funding_note": "Seed-раунд $1,46 млн от ФРИИ и фонда «Хайв»",
+    "investors": "ФРИИ, фонд «Хайв»",
+    "desc": "LLM-агенты для автоматизации клиентского сервиса и продаж на базе GigaChat",
+    "note": "Участие ФРИИ — известного и системного инвестора ранних стадий",
+    "source_name": "tproger.ru — Топ-10 IT-стартапов 2025",
+    "source_url": "https://tproger.ru/articles/kuda-investory-zanesli-dengi-v-2025---top-10-it-startapov-rossii",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Hirety",
+    "sector": "HR-tech",
+    "founded": 2025,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Компания зарегистрирована в марте 2025 г., выручки нет",
+    "funding_rub": 4,
+    "funding_note": "4 млн руб от Alhena VC (2025)",
+    "investors": "Alhena VC",
+    "desc": "Платформа для оценки технических навыков IT-специалистов уровня intern–middle",
+    "note": "Самая ранняя стадия — раунд получен в год основания компании",
+    "source_name": "vc.ru — Русский Венчур",
+    "source_url": "https://vc.ru/id4994551/2805133-investicii-alhena-vc-sdelki-s-nolim-smartvend-i-hirety",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Nolim",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 2021,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта; пост-money оценка 150 млн руб",
+    "funding_rub": 6.25,
+    "funding_note": "6,25 млн руб от Alhena VC (2025)",
+    "investors": "Alhena VC",
+    "desc": "No-code платформа для создания сайтов без привлечения программистов, с AI-ассистентом",
+    "note": "Повторный институциональный раунд спустя несколько лет после основания",
+    "source_name": "vc.ru — Русский Венчур",
+    "source_url": "https://vc.ru/id4994551/2805133-investicii-alhena-vc-sdelki-s-nolim-smartvend-i-hirety",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Центр аналитики микросейсмического мониторинга",
+    "sector": "Робототехника, hardware и космос",
+    "founded": 2025,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Компания основана в 2025 году, коммерческой выручки нет",
+    "funding_rub": null,
+    "funding_note": "Сумма от Alhena VC не раскрыта",
+    "investors": "Alhena VC",
+    "desc": "Технология неразрушающего контроля зданий по микросейсмическим волнам для выявления дефектов конструкций",
+    "note": "Deep tech-проект на стадии основания с институциональным инвестором",
+    "source_name": "vc.ru — Русский Венчур",
+    "source_url": "https://vc.ru/id4994551/2805133-investicii-alhena-vc-sdelki-s-nolim-smartvend-i-hirety",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Rubrick",
+    "sector": "Медиа, гейминг и соцсети",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 10,
+    "funding_note": "10 млн руб от бизнес-ангелов Андрея Осокина и Анатолия Мохова (2024)",
+    "investors": "бизнес-ангелы",
+    "desc": "Лицензированные конструкторы по мотивам фильмов, игр и мемов",
+    "note": "Нишевой потребительский стартап с seed-финансированием от именных бизнес-ангелов",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Zapusk.Tech",
+    "sector": "Fintech и Insurtech",
+    "founded": 2021,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 12.5,
+    "funding_note": "12,5 млн руб от Оксаны Сорокиной за 10% доли (2024)",
+    "investors": "бизнес-ангел Оксана Сорокина",
+    "desc": "Маркетплейс для инвестирования бизнес-ангелов в pre-IPO стартапы",
+    "note": "Именной бизнес-ангел с публичной сделкой по доле",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Metadoor Invest",
+    "sector": "Fintech и Insurtech",
+    "founded": 2021,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта; статус партнёра венчурной студии Россельхозбанка",
+    "funding_rub": null,
+    "funding_note": "Сумма не раскрыта",
+    "investors": "Россельхозбанк (Venture Studio)",
+    "desc": "Самообучающийся алгоритм для оценки инвестиционных рисков",
+    "note": "Партнёрство с корпоративной венчурной студией крупного банка",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "Smart Data Hub",
+    "sector": "AI и Deep Tech",
+    "founded": 2022,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 50,
+    "funding_note": "50 млн руб от KAMA FLOW и Friendly VC (ноябрь 2024)",
+    "investors": "KAMA FLOW, Friendly VC",
+    "desc": "Платформа кросс-канальной маркетинговой и продуктовой аналитики",
+    "note": "Два известных венчурных фонда в раунде — сильный сигнал доверия рынка",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "MPlays",
+    "sector": "AI и Deep Tech",
+    "founded": 2022,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта; заявленная точность модели 93%+",
+    "funding_rub": 25,
+    "funding_note": "25 млн руб от Malina VC (апрель 2024)",
+    "investors": "Malina VC",
+    "desc": "AI-анализ внешнего рекламного трафика на маркетплейсах",
+    "note": "Именной венчурный фонд Malina VC в раунде — известный частный инвестор",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Metamentor",
+    "sector": "AI и Deep Tech",
+    "founded": 2023,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 40,
+    "funding_note": "40 млн руб от четырёх бизнес-ангелов (сентябрь 2024)",
+    "investors": "бизнес-ангелы (4)",
+    "desc": "Генеративные AI-решения для анализа внутренних документов и поддержки сотрудников",
+    "note": "Крупный по меркам seed раунд от группы частных инвесторов",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "Simple Company",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 2022,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта; топ-40 премии Industrix и победитель Greentech 2024",
+    "funding_rub": null,
+    "funding_note": "Сумма не раскрыта",
+    "investors": "не раскрыты",
+    "desc": "ПО для управления активами на опасных производственных объектах",
+    "note": "Признание в двух отраслевых премиях (Industrix, Greentech) на раннем этапе",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "Indaspace",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 2020,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 29,
+    "funding_note": "29 млн руб от Friendly VC (2024)",
+    "investors": "Friendly VC",
+    "desc": "Система бронирования и управления гибридным офисным пространством",
+    "note": "Институциональный венчурный фонд в раунде",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "BIMIT",
+    "sector": "PropTech",
+    "founded": 2020,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта",
+    "funding_rub": 36,
+    "funding_note": "36 млн руб от частных ангелов и инвестфонда Татарстана (декабрь 2024)",
+    "investors": "частные бизнес-ангелы, инвестфонд Татарстана",
+    "desc": "Создание цифровых двойников зданий на основе BIM-технологий",
+    "note": "Региональный инвестфонд как соинвестор — редкий для выборки признак",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "medium"
+  },
+  {
+    "name": "JetHub",
+    "sector": "Кибербезопасность",
+    "founded": 2022,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Финалист Sber500 (топ-30), коммерческая выручка не раскрыта",
+    "funding_rub": null,
+    "funding_note": "Сумма не раскрыта",
+    "investors": "не раскрыты",
+    "desc": "AI-детекция уязвимостей в коде для разработчиков",
+    "note": "Прошёл отбор в топ-30 акселератора Sber500",
+    "source_name": "RB.RU — RB Choice 100",
+    "source_url": "https://rb.ru/longread/rb-choice-100-2024/",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "low"
+  },
+  {
+    "name": "Робатур",
+    "sector": "Робототехника, hardware и космос",
+    "founded": 2024,
+    "rev": 0,
+    "rev_year": 2025,
+    "growth": null,
+    "growth_note": "MVP-стадия, оборудование уже тестово работает на заводах розлива воды, молочном и зернопакующем производствах, но выручка за 2025 г. — 0 руб., чистый убыток 936 тыс. руб.",
+    "funding_rub": 6.5,
+    "funding_note": "Первые инвестиции ~5–8 млн руб от университетской студии «Южная фабрика стартапов»",
+    "investors": "«Южная фабрика стартапов» (венчурная студия при вузе)",
+    "desc": "Роботизированные интеллектуальные захваты, заменяющие ручной труд на производстве (включая хрупкие пищевые продукты)",
+    "note": "Основатель — победитель конкурса «Студенческий стартап»; оборудование уже пилотируется на реальных производствах при нулевой выручке",
+    "source_name": "atnow.ru — Сделки",
+    "source_url": "https://atnow.ru/deals/robatur-fp-tehnologies",
+    "is_ipo": false,
+    "is_official_rank": true,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "HireMate",
+    "sector": "HR-tech",
+    "founded": 2025,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "15+ клиентов используют платформу, выручка не раскрыта",
+    "funding_rub": 10,
+    "funding_note": "10 млн руб от brainbox.VC, brainbox_I и фонда Виктора Еремеева; ранее (октябрь 2025) — 5 млн руб за 5,5% доли",
+    "investors": "brainbox_I, фонд Виктора Еремеева",
+    "desc": "Автономный AI-отдел подбора персонала: скрининг, видеоинтервью, отчёты 24/7",
+    "note": "Институциональный посевной фонд brainbox_I в раунде, компания основана в том же году",
+    "source_name": "vc.ru — Русский Венчур",
+    "source_url": "https://vc.ru/id4994551/2640291-ii-servis-hiremate-privlek-10-mln-rubley",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "LawCopilot.ai",
+    "sector": "AI и Deep Tech",
+    "founded": 2025,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Продукт только выходит на рынок, выручки нет",
+    "funding_rub": 10,
+    "funding_note": "10 млн руб от посевного фонда brainbox_I",
+    "investors": "brainbox_I",
+    "desc": "AI-юридический ассистент с проверяемыми ответами и ссылками на нормы права, работающий в закрытом контуре компании",
+    "note": "Институциональный посевной фонд в раунде на старте продукта",
+    "source_name": "vc.ru — Русский Венчур",
+    "source_url": "https://vc.ru/id4994551/3065325-investitsii-v-yuridicheskiy-ii-assistent-lawcopilot-ai-ot-brainbox-i",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": true,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
+  },
+  {
+    "name": "Biovolf",
+    "sector": "AgroTech",
+    "founded": 2021,
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Выручка не раскрыта; стадия НИОКР и подготовки к выходу на международных инвесторов",
+    "funding_rub": 12.6,
+    "funding_note": "Pre-seed раунд $140 тыс. от ангельского синдиката «Полюс времени»",
+    "investors": "Ангельский синдикат «Полюс времени»",
+    "desc": "Биореакторы для выращивания вольфии (водного растения) как альтернативы соевому белку с 25-кратно более высокой биопродуктивностью",
+    "note": "Явно обозначенный pre-seed раунд от ангельского синдиката в глубокой биотех/агротех нише",
+    "source_name": "RB.RU — новости",
+    "source_url": "https://rb.ru/news/biovolf-preseed/",
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": true,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high"
   }
 ]

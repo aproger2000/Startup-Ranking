@@ -63,7 +63,7 @@
   .bar-fill { background:var(--series-1); height:100%; border-radius:3px 4px 4px 3px; min-width:3px; }
   .bar-value { width:26px; flex-shrink:0; font-variant-numeric:tabular-nums; font-weight:600; font-size:11.5px; }
 
-  /* --- filters --- */
+  /* --- global filters (apply to all 4 buckets at once) --- */
   .filters { position:sticky; top:0; z-index:5; background:var(--page-plane); padding:6px 0 10px; display:flex; flex-direction:column; gap:8px; }
   .filters .row1 { display:flex; gap:8px; }
   .filters input[type=text] { flex:1; min-width:0; }
@@ -73,55 +73,39 @@
   }
   .filters .row2 { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
   .filters .row2 select { flex:1; min-width:120px; }
-  .count-chip { font-size:11.5px; color:var(--text-muted); white-space:nowrap; padding:0 2px; }
   .seg { display:flex; border:1px solid var(--card-border); border-radius:10px; overflow:hidden; flex-shrink:0; }
   .seg button { border:none; background:var(--surface-1); color:var(--text-secondary); font-size:12.5px; padding:9px 12px; cursor:pointer; }
   .seg button.active { background:var(--series-1); color:#fff; font-weight:600; }
 
-  /* --- card list (mobile & default) --- */
-  .company-card { border-bottom:1px solid var(--gridline); padding:12px 2px; display:flex; gap:10px; }
-  .company-card:last-child { border-bottom:none; }
-  .rank-badge { flex-shrink:0; width:30px; text-align:center; font-variant-numeric:tabular-nums; color:var(--text-muted);
-    font-size:13px; font-weight:600; padding-top:2px; }
-  .company-main { flex:1; min-width:0; }
-  .company-head { display:flex; justify-content:space-between; align-items:flex-start; gap:8px; }
-  .company-name { font-weight:700; font-size:14.5px; }
-  .score-badge { flex-shrink:0; font-variant-numeric:tabular-nums; background:var(--chip-bg); border-radius:6px;
-    padding:2px 7px; font-size:12px; font-weight:700; }
-  .sector-chip { display:inline-block; background:var(--chip-bg); color:var(--text-secondary); font-size:10.5px;
-    padding:2px 7px; border-radius:999px; margin-top:4px; }
-  .company-desc { color:var(--text-secondary); font-size:12.5px; margin-top:5px; line-height:1.4; }
-  .metrics-row { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:8px; font-size:12px; }
-  .metric { white-space:nowrap; }
-  .metric .k { color:var(--text-muted); }
-  .metric .v { font-weight:600; font-variant-numeric:tabular-nums; }
+  /* --- compact scrollable bucket tables: top ~10 rows visible, rest scrolls inside --- */
+  .bucket-scroll { max-height: 480px; overflow-y: auto; border-top:1px solid var(--gridline); }
+  .mini-row { display:flex; align-items:center; gap:8px; padding:8px 4px; border-bottom:1px solid var(--gridline); font-size:12.5px; }
+  .mini-row:last-child { border-bottom:none; }
+  .mini-rank { flex-shrink:0; width:22px; text-align:center; font-variant-numeric:tabular-nums; color:var(--text-muted); font-weight:600; }
+  .mini-main { flex:1; min-width:0; }
+  .mini-name-row { display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; }
+  .mini-name { font-weight:700; font-size:13px; }
+  .mini-sector { color:var(--text-muted); font-size:10.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .mini-metric { color:var(--text-secondary); font-size:11px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .mini-score { flex-shrink:0; font-variant-numeric:tabular-nums; background:var(--chip-bg); border-radius:6px; padding:3px 7px; font-size:12px; font-weight:700; }
   .growth-pos { color:var(--good); } .growth-neg { color:var(--bad); }
-  .company-note { color:var(--text-muted); font-size:11px; margin-top:6px; font-style:italic; }
-  .company-foot { display:flex; justify-content:space-between; align-items:center; margin-top:8px; gap:8px; flex-wrap:wrap; }
-  .investors-txt { font-size:11.5px; color:var(--text-secondary); }
-  .src-link { color:var(--series-1); text-decoration:none; font-size:12px; white-space:nowrap; }
-  .src-link:hover { text-decoration:underline; }
   .na { color:var(--text-muted); }
+  .empty-state { text-align:center; color:var(--text-muted); font-size:13px; padding:20px 10px; }
+  .bucket-head { display:flex; justify-content:space-between; align-items:baseline; gap:8px; flex-wrap:wrap; }
 
-  .load-more { display:block; width:100%; margin-top:12px; padding:11px; border-radius:10px; border:1px solid var(--card-border);
-    background:var(--surface-1); color:var(--text-primary); font-size:13.5px; font-weight:600; cursor:pointer; }
-  .load-more:disabled { opacity:.5; }
-  .empty-state { text-align:center; color:var(--text-muted); font-size:13px; padding:30px 10px; }
-
-  /* --- table (desktop only) --- */
-  table { width:100%; border-collapse:collapse; font-size:13px; display:none; }
-  thead th { text-align:left; font-weight:600; color:var(--text-secondary); font-size:11px; text-transform:uppercase;
-    letter-spacing:.03em; padding:8px 10px; border-bottom:1px solid var(--baseline); cursor:pointer; user-select:none; white-space:nowrap; }
-  thead th:hover { color:var(--text-primary); }
-  thead th.sorted::after { content:" ▾"; font-size:10px; }
-  tbody td { padding:9px 10px; border-bottom:1px solid var(--gridline); vertical-align:top; }
-  tbody tr:hover { background:var(--chip-bg); }
-  td.num { font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
-  td.rank { font-variant-numeric:tabular-nums; color:var(--text-muted); text-align:right; }
-  td.fundcell { min-width:170px; max-width:230px; }
+  /* --- diaspora: simple table (few entries, no bucketing needed) --- */
+  table.diaspora-table { width:100%; border-collapse:collapse; font-size:13px; }
+  table.diaspora-table thead th { text-align:left; font-weight:600; color:var(--text-secondary); font-size:11px; text-transform:uppercase;
+    letter-spacing:.03em; padding:8px 10px; border-bottom:1px solid var(--baseline); white-space:nowrap; }
+  table.diaspora-table tbody td { padding:9px 10px; border-bottom:1px solid var(--gridline); vertical-align:top; }
+  table.diaspora-table tbody tr:hover { background:var(--chip-bg); }
   .t-name { font-weight:600; }
   .t-desc { color:var(--text-secondary); font-size:12px; margin-top:2px; line-height:1.4; }
   .t-note { color:var(--text-muted); font-size:11px; margin-top:3px; font-style:italic; }
+  .sector-chip { display:inline-block; background:var(--chip-bg); color:var(--text-secondary); font-size:10.5px;
+    padding:2px 7px; border-radius:999px; }
+  .src-link { color:var(--series-1); text-decoration:none; font-size:12px; white-space:nowrap; }
+  .src-link:hover { text-decoration:underline; }
 
   @media (min-width: 760px) {
     .viz-root { padding: 28px 20px 80px; }
@@ -136,8 +120,7 @@
     .filters .row2 { flex:0 0 auto; margin-left:auto; }
     .filters .row2 select { flex:0 0 auto; min-width:auto; }
     .bar-label { width:230px; }
-    .company-list { display:none; }
-    table { display:table; }
+    .bucket-grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
   }
 
   details.longlist summary { cursor:pointer; font-weight:600; font-size:13.5px; padding:6px 0; }
@@ -161,7 +144,7 @@
   <div class="top-bar">
     <div>
       <h1>Топ стартапов России</h1>
-      <p class="subtitle">Живой рейтинг молодых российских стартапов (основаны примерно с 2018–2019 года) по выручке, её динамике, финансированию и отраслевому признанию. База пополняется.</p>
+      <p class="subtitle">Живой рейтинг российских стартапов и растущих компаний — разбит на 4 раздела по возрасту и стадии. База пополняется.</p>
     </div>
     <button class="theme-toggle" id="themeToggle">🌓</button>
   </div>
@@ -176,8 +159,6 @@
   </div>
 
   <div class="card">
-    <h2>Рейтинг</h2>
-    <p class="card-sub" id="cardSub">Загрузка…</p>
     <div class="filters">
       <div class="row1">
         <input type="text" id="searchBox" placeholder="Поиск по названию или описанию…">
@@ -199,29 +180,54 @@
         </select>
       </div>
     </div>
+  </div>
 
-    <div class="company-list" id="companyList"></div>
-
-    <div style="overflow-x:auto;">
-    <table id="mainTable">
-      <thead>
-        <tr>
-          <th data-key="rank">#</th><th data-key="name">Компания</th><th data-key="sector">Отрасль</th>
-          <th data-key="founded">Год</th><th data-key="rev">Выручка</th><th data-key="growth">Рост</th>
-          <th data-key="funding_rub">Финансирование</th><th data-key="score">Скор</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody"></tbody>
-    </table>
+  <!-- 4 раздела для домашнего рынка (bucket-based) -->
+  <div id="domesticBuckets">
+    <div class="bucket-grid">
+      <div class="card" data-bucket-card="young">
+        <div class="bucket-head"><h2>Молодые компании</h2></div>
+        <p class="card-sub">До 3 лет · <span data-bucket-count="young">…</span></p>
+        <div class="bucket-scroll" data-bucket-list="young"></div>
+        <div class="empty-state" data-bucket-empty="young" style="display:none;">Ничего не найдено.</div>
+      </div>
+      <div class="card" data-bucket-card="mature">
+        <div class="bucket-head"><h2>Зрелые компании</h2></div>
+        <p class="card-sub">3–10 лет · <span data-bucket-count="mature">…</span></p>
+        <div class="bucket-scroll" data-bucket-list="mature"></div>
+        <div class="empty-state" data-bucket-empty="mature" style="display:none;">Ничего не найдено.</div>
+      </div>
+      <div class="card" data-bucket-card="aged">
+        <div class="bucket-head"><h2>Возрастные, но растущие</h2></div>
+        <p class="card-sub">Старше 10 лет, активный рост · <span data-bucket-count="aged">…</span></p>
+        <div class="bucket-scroll" data-bucket-list="aged"></div>
+        <div class="empty-state" data-bucket-empty="aged" style="display:none;">Ничего не найдено.</div>
+      </div>
+      <div class="card" data-bucket-card="early_stage">
+        <div class="bucket-head"><h2>Ранняя стадия</h2></div>
+        <p class="card-sub">Seed / pre-seed, без выручки или на старте · <span data-bucket-count="early_stage">…</span></p>
+        <div class="bucket-scroll" data-bucket-list="early_stage"></div>
+        <div class="empty-state" data-bucket-empty="early_stage" style="display:none;">Ничего не найдено.</div>
+      </div>
     </div>
+  </div>
 
-    <button class="load-more" id="loadMoreBtn" style="display:none;">Показать ещё</button>
-    <div class="empty-state" id="emptyState" style="display:none;">Ничего не найдено — попробуйте изменить фильтры.</div>
+  <!-- Диаспора: маленький список, отдельная простая таблица -->
+  <div class="card" id="diasporaCard" style="display:none;">
+    <h2>Диаспора</h2>
+    <p class="card-sub" id="diasporaSub">Стартапы с российскими сооснователями, работающие преимущественно за рубежом</p>
+    <div style="overflow-x:auto;">
+      <table class="diaspora-table">
+        <thead><tr><th>#</th><th>Компания</th><th>Отрасль</th><th>Год</th><th>Финансирование</th><th>Скор</th></tr></thead>
+        <tbody id="diasporaBody"></tbody>
+      </table>
+    </div>
+    <div class="empty-state" id="diasporaEmpty" style="display:none;">Ничего не найдено.</div>
   </div>
 
   <div class="card">
     <details class="longlist" id="llDetails">
-      <summary>Другие компании в базе (не попавшие в топ по скору)</summary>
+      <summary>Другие компании в базе (не попавшие в топ-50 своего раздела)</summary>
       <p class="card-sub" style="margin-top:8px;">Молодые стартапы с меньшим числом баллов — часто просто потому, что о них меньше открытых данных, а не потому что они слабее.</p>
       <div id="llList"></div>
     </details>
@@ -233,19 +239,16 @@
   </div>
 
   <footer>
-    Данные из открытых источников (RB.RU, vc.ru, Forbes.ru, TAdviser, CNews, ComNews, Sk.ru, Smart Ranking, ТЕХУСПЕХ, РБК Компании).
+    Данные из открытых источников (RB.RU, vc.ru, Forbes.ru, TAdviser, CNews, ComNews, Sk.ru, Smart Ranking, ТЕХУСПЕХ, РБК Компании, DaData).
     <br>API: <a href="/api/companies">/api/companies</a> · <a href="/admin.html">Админ-панель</a>
   </footer>
 </div>
 
 <script>
 const API = "";
+const BUCKETS = ["young", "mature", "aged", "early_stage"];
 let allSectors = [];
 let currentCategory = "domestic";
-let loadedItems = [];
-let currentOffset = 0;
-const PAGE_SIZE = 30;
-let currentTotal = 0;
 const isDesktop = () => window.innerWidth >= 760;
 
 function esc(s){ const d=document.createElement('div'); d.textContent = s==null?'':s; return d.innerHTML; }
@@ -254,7 +257,7 @@ function escAttr(s){ return (s||'').replace(/"/g,'&quot;'); }
 function fmtRev(v, y){
   if (v === null || v === undefined) return '<span class="na">нет данных</span>';
   let s = v >= 1000 ? (v/1000).toFixed(v>=10000?0:1).replace('.0','') + ' млрд ₽' : (v>=100? Math.round(v) : v.toFixed(v<10?2:1)) + ' млн ₽';
-  return s + (y ? ' <span class="na">(' + y + ')</span>' : '');
+  return s + (y ? ' (' + y + ')' : '');
 }
 function fmtFunding(v){
   if (v === null || v === undefined) return null;
@@ -278,7 +281,7 @@ async function fetchJSON(url, opts){
 async function loadStats(){
   const s = await fetchJSON(`/api/stats?category=${currentCategory}`);
   document.getElementById('statRow').innerHTML = `
-    <div class="stat-tile"><div class="stat-value">${s.total_companies}</div><div class="stat-label">компаний в рейтинге (${currentCategory==='domestic'?'российский рынок':'диаспора'})</div></div>
+    <div class="stat-tile"><div class="stat-value">${s.total_companies}</div><div class="stat-label">компаний в базе (${currentCategory==='domestic'?'российский рынок':'диаспора'})</div></div>
     <div class="stat-tile"><div class="stat-value">${s.total_sectors}</div><div class="stat-label">отраслей представлено</div></div>
     <div class="stat-tile"><div class="stat-value">${(s.total_revenue_mln/1000).toFixed(1)} млрд ₽</div><div class="stat-label">суммарная выручка (${s.n_revenue_known} компаний с данными)</div></div>
     <div class="stat-tile"><div class="stat-value">${(s.total_funding_mln/1000).toFixed(1)} млрд ₽</div><div class="stat-label">суммарное финансирование (${s.n_funding_known} компаний)</div></div>`;
@@ -307,14 +310,9 @@ function currentSort(){
   return { sort_by, sort_dir };
 }
 
-function buildQuery(offset){
+function buildQuery(extra){
   const { sort_by, sort_dir } = currentSort();
-  const params = new URLSearchParams({
-    category: currentCategory,
-    limit: PAGE_SIZE,
-    offset: offset,
-    sort_by, sort_dir,
-  });
+  const params = new URLSearchParams({ category: currentCategory, sort_by, sort_dir, ...extra });
   const search = document.getElementById('searchBox').value.trim();
   const sector = document.getElementById('sectorFilter').value;
   if (search) params.set('search', search);
@@ -322,87 +320,82 @@ function buildQuery(offset){
   return params.toString();
 }
 
-async function loadCompanies(reset){
-  if (reset) { currentOffset = 0; loadedItems = []; }
-  const data = await fetchJSON(`/api/companies?${buildQuery(currentOffset)}`);
-  currentTotal = data.total;
-  loadedItems = loadedItems.concat(data.items);
-  currentOffset += data.items.length;
-  document.getElementById('cardSub').textContent = `Показано ${loadedItems.length} из ${currentTotal}. Кликните заголовок таблицы (на десктопе) или выберите сортировку, чтобы поменять порядок.`;
-  render();
-  const btn = document.getElementById('loadMoreBtn');
-  btn.style.display = currentOffset < currentTotal ? 'block' : 'none';
-  document.getElementById('emptyState').style.display = loadedItems.length === 0 ? 'block' : 'none';
-}
-
-function metricHtml(k, v){
-  return `<span class="metric"><span class="k">${k}:</span> <span class="v">${v}</span></span>`;
-}
-
-function companyCardHtml(c, rank){
+function miniRowHtml(c, rank){
   const fund = fmtFunding(c.funding_rub);
-  const fundHtml = fund ? metricHtml('Финанс.', fund) : (c.funding_note ? `<span class="metric na">${esc(c.funding_note)}</span>` : '');
+  let metric;
+  if (c.rev !== null && c.rev !== undefined) {
+    metric = `${c.founded ?? '?'} · выручка ${fmtRev(c.rev, c.rev_year)}${c.growth!==null&&c.growth!==undefined? ' · '+fmtGrowth(c.growth):''}`;
+  } else if (fund) {
+    metric = `${c.founded ?? '?'} · финанс. ${fund}${c.investors? ' ('+esc(c.investors)+')' : ''}`;
+  } else if (c.growth_note) {
+    metric = `${c.founded ?? '?'} · ${esc(c.growth_note)}`;
+  } else {
+    metric = `${c.founded ?? '?'} · ${esc(c.desc || '')}`;
+  }
   return `
-  <div class="company-card">
-    <div class="rank-badge">${rank}</div>
-    <div class="company-main">
-      <div class="company-head">
-        <div class="company-name">${esc(c.name)}</div>
-        <div class="score-badge">${c.score}</div>
-      </div>
-      <span class="sector-chip">${esc(c.sector)}</span>
-      <div class="company-desc">${esc(c.desc||'')}</div>
-      <div class="metrics-row">
-        ${metricHtml('Год', c.founded ?? '?')}
-        ${metricHtml('Выручка', fmtRev(c.rev, c.rev_year))}
-        ${metricHtml('Рост', fmtGrowth(c.growth, c.growth_note))}
-        ${fundHtml}
-      </div>
-      ${c.note ? `<div class="company-note">${esc(c.note)}</div>` : ''}
-      <div class="company-foot">
-        <div class="investors-txt">${c.investors ? esc(c.investors) : ''}</div>
-        ${c.source_url ? `<a class="src-link" href="${escAttr(c.source_url)}" target="_blank" rel="noopener">${esc(c.source_name||'источник')} ↗</a>` : ''}
-      </div>
+  <div class="mini-row">
+    <div class="mini-rank">${rank}</div>
+    <div class="mini-main">
+      <div class="mini-name-row"><span class="mini-name">${esc(c.name)}</span><span class="mini-sector">${esc(c.sector)}</span></div>
+      <div class="mini-metric">${metric}</div>
     </div>
+    <div class="mini-score">${c.score}</div>
   </div>`;
 }
 
-function tableRowHtml(c, rank){
+async function loadBucket(bucket){
+  const q = buildQuery({ bucket, limit: 50, offset: 0 });
+  const data = await fetchJSON(`/api/companies?${q}`);
+  const listEl = document.querySelector(`[data-bucket-list="${bucket}"]`);
+  const countEl = document.querySelector(`[data-bucket-count="${bucket}"]`);
+  const emptyEl = document.querySelector(`[data-bucket-empty="${bucket}"]`);
+  countEl.textContent = `показано ${data.items.length} из ${data.total}`;
+  listEl.innerHTML = data.items.map((c,i) => miniRowHtml(c, i+1)).join('');
+  emptyEl.style.display = data.items.length === 0 ? 'block' : 'none';
+}
+
+async function loadAllBuckets(){
+  await Promise.all(BUCKETS.map(loadBucket));
+}
+
+function diasporaRowHtml(c, rank){
   const fund = fmtFunding(c.funding_rub);
   return `<tr>
-    <td class="rank">${rank}</td>
+    <td>${rank}</td>
     <td><div class="t-name">${esc(c.name)}</div><div class="t-desc">${esc(c.desc||'')}</div>${c.note?`<div class="t-note">${esc(c.note)}</div>`:''}</td>
     <td><span class="sector-chip">${esc(c.sector)}</span></td>
-    <td class="num">${c.founded ?? '<span class="na">?</span>'}</td>
-    <td class="num">${fmtRev(c.rev, c.rev_year)}</td>
-    <td class="num">${fmtGrowth(c.growth, c.growth_note)}</td>
-    <td class="fundcell">${fund || (c.funding_note ? `<span class="na">${esc(c.funding_note)}</span>` : '<span class="na">нет данных</span>')}
-      ${c.investors ? `<div class="t-note">${esc(c.investors)}</div>` : ''}
-      ${c.source_url ? `<a class="src-link" href="${escAttr(c.source_url)}" target="_blank" rel="noopener">${esc(c.source_name||'источник')} ↗</a>` : ''}
+    <td>${c.founded ?? '<span class="na">?</span>'}</td>
+    <td>${fund || (c.funding_note ? `<span class="na">${esc(c.funding_note)}</span>` : '<span class="na">нет данных</span>')}
+      ${c.source_url ? `<br><a class="src-link" href="${escAttr(c.source_url)}" target="_blank" rel="noopener">${esc(c.source_name||'источник')} ↗</a>` : ''}
     </td>
-    <td class="num"><span class="score-badge">${c.score}</span></td>
+    <td>${c.score}</td>
   </tr>`;
 }
 
-function render(){
-  const listEl = document.getElementById('companyList');
-  const bodyEl = document.getElementById('tableBody');
-  listEl.innerHTML = loadedItems.map((c,i) => companyCardHtml(c, i+1)).join('');
-  bodyEl.innerHTML = loadedItems.map((c,i) => tableRowHtml(c, i+1)).join('');
+async function loadDiaspora(){
+  const q = buildQuery({ limit: 200, offset: 0 });
+  const data = await fetchJSON(`/api/companies?${q}`);
+  document.getElementById('diasporaSub').textContent = `Показано ${data.items.length} из ${data.total}. Стартапы с российскими сооснователями, работающие преимущественно за рубежом.`;
+  document.getElementById('diasporaBody').innerHTML = data.items.map((c,i) => diasporaRowHtml(c, i+1)).join('');
+  document.getElementById('diasporaEmpty').style.display = data.items.length === 0 ? 'block' : 'none';
 }
 
 async function loadLongList(){
-  // "Длинный хвост" — компании вне первых 100 по скору в текущей категории
-  const data = await fetchJSON(`/api/companies?category=${currentCategory}&sort_by=score&sort_dir=desc&limit=200&offset=100`);
+  // "Длинный хвост" — компании вне топ-50 своего раздела (только для России; диаспора вся видна в своей таблице)
+  if (currentCategory !== 'domestic') { document.getElementById('llDetails').style.display = 'none'; return; }
+  document.getElementById('llDetails').style.display = '';
+  const results = await Promise.all(BUCKETS.map(b => fetchJSON(`/api/companies?${buildQuery({bucket:b, sort_by:'score', sort_dir:'desc', limit:200, offset:50})}`)));
   const el = document.getElementById('llList');
-  if (!data.items.length) { el.innerHTML = '<p class="card-sub">Пока таких нет.</p>'; return; }
-  el.innerHTML = data.items.map(c => `
+  const items = results.flatMap((data, i) => data.items.map(c => ({...c, _bucket: BUCKETS[i]})));
+  if (!items.length) { el.innerHTML = '<p class="card-sub">Пока таких нет — все компании в базе поместились в топ-50 своих разделов.</p>'; return; }
+  el.innerHTML = items.map(c => `
     <div class="ll-item">
-      <b>${esc(c.name)}</b> · <span class="na">${esc(c.sector)}</span> · скор ${c.score}<br>
+      <b>${esc(c.name)}</b> · <span class="na">${esc(c.sector)}</span> · раздел «${esc(BUCKET_RU[c._bucket])}» · скор ${c.score}<br>
       <span style="color:var(--text-secondary)">${esc(c.desc||'')}</span>
       ${c.source_url ? ` · <a class="src-link" href="${escAttr(c.source_url)}" target="_blank" rel="noopener">источник ↗</a>` : ''}
     </div>`).join('');
 }
+const BUCKET_RU = { young: 'Молодые', mature: 'Зрелые', aged: 'Возрастные, растущие', early_stage: 'Ранняя стадия' };
 
 async function loadMethodology(){
   const m = await fetchJSON('/api/methodology');
@@ -418,37 +411,29 @@ async function loadMethodology(){
   document.getElementById('metaLine').textContent = `Курс для сопоставления валют: 1 USD ≈ ${m.usd_rub} ₽ (ориентировочно) · база пополняется`;
 }
 
+async function refreshCategoryView(){
+  document.getElementById('domesticBuckets').style.display = currentCategory === 'domestic' ? '' : 'none';
+  document.getElementById('diasporaCard').style.display = currentCategory === 'diaspora' ? '' : 'none';
+  await Promise.all([loadStats(), loadSectorChart(), loadSectorOptions()]);
+  if (currentCategory === 'domestic') { await loadAllBuckets(); } else { await loadDiaspora(); }
+  loadLongList();
+}
+
 // ---- events ----
 let searchDebounce;
 document.getElementById('searchBox').addEventListener('input', () => {
   clearTimeout(searchDebounce);
-  searchDebounce = setTimeout(() => loadCompanies(true), 300);
+  searchDebounce = setTimeout(refreshCategoryView, 300);
 });
-document.getElementById('sectorFilter').addEventListener('change', () => loadCompanies(true));
-document.getElementById('sortSelect').addEventListener('change', () => loadCompanies(true));
-document.getElementById('loadMoreBtn').addEventListener('click', () => loadCompanies(false));
+document.getElementById('sectorFilter').addEventListener('change', refreshCategoryView);
+document.getElementById('sortSelect').addEventListener('change', refreshCategoryView);
 document.getElementById('categorySeg').addEventListener('click', (e) => {
   const btn = e.target.closest('button');
   if (!btn) return;
   document.querySelectorAll('#categorySeg button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   currentCategory = btn.dataset.val;
-  loadStats(); loadSectorChart(); loadSectorOptions().then(() => loadCompanies(true));
-  loadLongList();
-});
-document.querySelectorAll('#mainTable thead th').forEach(th => {
-  th.addEventListener('click', () => {
-    const key = th.dataset.key;
-    if (key === 'rank') return;
-    const sel = document.getElementById('sortSelect');
-    const [curKey, curDir] = sel.value.split('-');
-    const newDir = (curKey === key && curDir === 'desc') ? 'asc' : 'desc';
-    const match = [...sel.options].find(o => o.value === `${key}-${newDir}`);
-    sel.value = match ? match.value : `${key}-desc`;
-    document.querySelectorAll('#mainTable thead th').forEach(x => x.classList.remove('sorted'));
-    th.classList.add('sorted');
-    loadCompanies(true);
-  });
+  refreshCategoryView();
 });
 document.getElementById('themeToggle').addEventListener('click', () => {
   const root = document.documentElement;
@@ -460,9 +445,8 @@ document.getElementById('themeToggle').addEventListener('click', () => {
 
 // ---- init ----
 (async function init(){
-  await Promise.all([loadStats(), loadSectorChart(), loadSectorOptions(), loadMethodology()]);
-  await loadCompanies(true);
-  loadLongList();
+  await loadMethodology();
+  await refreshCategoryView();
 })();
 </script>
 </body>
