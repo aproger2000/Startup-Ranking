@@ -23,6 +23,7 @@
     --chip-bg:        #f0efec;
     --mining-accent:  #8a4b12;
     --fintech-accent: #0e7c5a;
+    --biotech-accent: #7a3fa0;
   }
   @media (prefers-color-scheme: dark) {
     :root:where(:not([data-theme="light"])) .viz-root {
@@ -30,7 +31,7 @@
       --surface-1: #1a1a19; --page-plane:#0d0d0d; --text-primary:#fff; --text-secondary:#c3c2b7;
       --text-muted:#898781; --gridline:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
       --card-border:rgba(255,255,255,0.10); --series-1:#3987e5; --good:#0ca30c; --bad:#e66767; --chip-bg:#26261f;
-      --mining-accent:#c2760f; --fintech-accent:#1fa478;
+      --mining-accent:#c2760f; --fintech-accent:#1fa478; --biotech-accent:#a768d1;
     }
   }
   :root[data-theme="dark"] .viz-root {
@@ -38,7 +39,7 @@
     --surface-1: #1a1a19; --page-plane:#0d0d0d; --text-primary:#fff; --text-secondary:#c3c2b7;
     --text-muted:#898781; --gridline:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
     --card-border:rgba(255,255,255,0.10); --series-1:#3987e5; --good:#0ca30c; --bad:#e66767; --chip-bg:#26261f;
-    --mining-accent:#c2760f; --fintech-accent:#1fa478;
+    --mining-accent:#c2760f; --fintech-accent:#1fa478; --biotech-accent:#a768d1;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin:0; padding:0; }
@@ -229,6 +230,23 @@
   .fintech-stage-chip { display:inline-block; background:var(--chip-bg); border:1px solid var(--card-border); color:var(--text-secondary);
     font-size:10.5px; padding:2px 7px; border-radius:999px; white-space:nowrap; }
   .fintech-foot { padding:12px 16px 16px; font-size:11.5px; color:var(--text-muted); line-height:1.6; border-top:1px solid var(--gridline); }
+
+  /* --- Биотех и Медтех: та же схема, что и «Финтех» — существующий сектор
+     базы («HealthTech, MedTech и BioTech») в отдельной сквозной таблице,
+     без новых данных и без изменения ценза --- */
+  .biotech-card { border:1px solid var(--card-border); border-radius:14px; overflow:hidden; margin-bottom:14px; background:var(--surface-1); }
+  .biotech-card-head { background:var(--biotech-accent); color:#fff; padding:16px 18px 14px; }
+  .biotech-card-head h2 { margin:0 0 4px; font-size:16px; color:#fff; }
+  .biotech-card-head p { margin:0; font-size:12px; opacity:.92; line-height:1.5; }
+  .biotech-table-wrap { overflow-x:auto; }
+  table.biotech-table { width:100%; border-collapse:collapse; font-size:12.5px; min-width:760px; }
+  table.biotech-table thead th { text-align:left; font-weight:700; color:var(--text-secondary); font-size:10.5px; text-transform:uppercase;
+    letter-spacing:.04em; padding:10px 12px; border-bottom:2px solid var(--biotech-accent); white-space:nowrap; background:var(--chip-bg); }
+  table.biotech-table tbody td { padding:11px 12px; border-bottom:1px solid var(--gridline); vertical-align:top; }
+  table.biotech-table tbody tr:nth-child(even) { background:var(--chip-bg); }
+  .biotech-stage-chip { display:inline-block; background:var(--chip-bg); border:1px solid var(--card-border); color:var(--text-secondary);
+    font-size:10.5px; padding:2px 7px; border-radius:999px; white-space:nowrap; }
+  .biotech-foot { padding:12px 16px 16px; font-size:11.5px; color:var(--text-muted); line-height:1.6; border-top:1px solid var(--gridline); }
   footer { text-align:center; color:var(--text-muted); font-size:11.5px; margin-top:24px; line-height:1.6; }
   footer a { color: var(--series-1); }
 </style>
@@ -248,6 +266,7 @@
     <button data-view="main" class="active" type="button">Общий рейтинг</button>
     <button data-view="mining" type="button">Горно-рудная отрасль</button>
     <button data-view="fintech" type="button">Финтех</button>
+    <button data-view="biotech" type="button">Биотех и Медтех</button>
   </div>
 
   <div id="mainView">
@@ -428,6 +447,31 @@
       </div>
     </div>
   </div><!-- /fintechView -->
+
+  <div id="biotechView" style="display:none;">
+    <div class="biotech-card">
+      <div class="biotech-card-head">
+        <h2>Рейтинг биотех- и медтех-стартапов</h2>
+        <p id="biotechSub">Сектор «HealthTech, MedTech и BioTech» из общего рейтинга — тот же скор и та же
+          методология, здесь просто вырезан один сектор в отдельную сквозную таблицу (все разделы и обе категории
+          вместе).</p>
+      </div>
+      <div class="biotech-table-wrap">
+        <table class="biotech-table">
+          <thead><tr><th>#</th><th>Компания</th><th>Раздел</th><th>Год</th><th>Показатели</th><th>Скор</th></tr></thead>
+          <tbody id="biotechBody"></tbody>
+        </table>
+      </div>
+      <div class="empty-state" id="biotechEmpty" style="display:none;">Ничего не найдено.</div>
+      <div class="biotech-foot">
+        Компании сектора «HealthTech, MedTech и BioTech» (цифровое здравоохранение, медицинские приборы и софт,
+        биотехнологии, диагностика, фарма и т.п.) — те же данные и тот же 15-летний возрастной ценз, что и в общем
+        рейтинге выше; здесь они просто собраны в одну таблицу по всем разделам сразу (молодые, зрелые, возрастные
+        растущие, ранняя стадия) и включают обе категории — Россия и диаспора. Раздел компании показан отдельным
+        столбцом.
+      </div>
+    </div>
+  </div><!-- /biotechView -->
 
   <footer>
     Данные из открытых источников (RB.RU, vc.ru, Forbes.ru, TAdviser, CNews, ComNews, Sk.ru, Smart Ranking, ТЕХУСПЕХ, РБК Компании, DaData).
@@ -761,6 +805,52 @@ async function loadFintech(){
   document.getElementById('fintechEmpty').style.display = data.items.length === 0 ? 'block' : 'none';
 }
 
+function biotechStageChip(c){
+  const parts = [];
+  if (c.bucket && BUCKET_RU[c.bucket]) parts.push(BUCKET_RU[c.bucket]);
+  if (c.category === 'diaspora') parts.push('Диаспора');
+  return parts.map(p => `<span class="biotech-stage-chip">${esc(p)}</span>`).join(' ');
+}
+
+function biotechMetricHtml(c){
+  const fund = fmtFunding(c.funding_rub);
+  if (c.rev !== null && c.rev !== undefined) {
+    return fmtRev(c.rev, c.rev_year) + (c.growth !== null && c.growth !== undefined ? '<br>' + fmtGrowth(c.growth) : '');
+  }
+  if (fund) {
+    return `финанс. ${fund}` + (c.investors ? `<br><span class="na">${esc(c.investors)}</span>` : '');
+  }
+  if (c.growth_note) {
+    return `<span class="na">${esc(c.growth_note)}</span>`;
+  }
+  return '<span class="na">нет данных</span>';
+}
+
+function biotechRowHtml(c, rank){
+  return `<tr>
+    <td>${rank}</td>
+    <td>
+      <div class="t-name">${esc(c.name)}</div>
+      <div class="t-desc">${esc(c.desc || '')}</div>
+      ${c.note ? `<div class="t-note">${esc(c.note)}</div>` : ''}
+    </td>
+    <td>${biotechStageChip(c)}</td>
+    <td>${c.founded ?? '<span class="na">?</span>'}</td>
+    <td>${biotechMetricHtml(c)}
+      ${c.source_url ? `<br><a class="src-link" href="${escAttr(c.source_url)}" target="_blank" rel="noopener">${esc(c.source_name || 'источник')} ↗</a>` : ''}
+    </td>
+    <td><span class="t-score"${scoreStyleAttr(c.score)}>${c.score}</span></td>
+  </tr>`;
+}
+
+async function loadBiotech(){
+  const q = new URLSearchParams({ sector: 'HealthTech, MedTech и BioTech', category: 'all', status: 'active', limit: 200, offset: 0, sort_by: 'score', sort_dir: 'desc' });
+  const data = await fetchJSON(`/api/companies?${q}`);
+  document.getElementById('biotechSub').textContent = `Показано ${data.items.length} из ${data.total}. Сектор «HealthTech, MedTech и BioTech» из общего рейтинга — тот же скор и та же методология, здесь просто вырезан один сектор в отдельную сквозную таблицу (все разделы и обе категории вместе).`;
+  document.getElementById('biotechBody').innerHTML = data.items.map((c,i) => biotechRowHtml(c, i+1)).join('');
+  document.getElementById('biotechEmpty').style.display = data.items.length === 0 ? 'block' : 'none';
+}
+
 async function refreshCategoryView(){
   document.getElementById('domesticBuckets').style.display = currentCategory === 'domestic' ? '' : 'none';
   document.getElementById('diasporaCard').style.display = currentCategory === 'diaspora' ? '' : 'none';
@@ -810,6 +900,7 @@ document.getElementById('viewTabs').addEventListener('click', (e) => {
   document.getElementById('mainView').style.display = view === 'main' ? '' : 'none';
   document.getElementById('miningView').style.display = view === 'mining' ? '' : 'none';
   document.getElementById('fintechView').style.display = view === 'fintech' ? '' : 'none';
+  document.getElementById('biotechView').style.display = view === 'biotech' ? '' : 'none';
 });
 
 // ---- init ----
@@ -819,6 +910,7 @@ document.getElementById('viewTabs').addEventListener('click', (e) => {
   loadVcFunds();
   loadMining();
   loadFintech();
+  loadBiotech();
 })();
 </script>
 </body>
