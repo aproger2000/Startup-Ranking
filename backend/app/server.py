@@ -160,10 +160,17 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send_json({"status": "ok"})
 
             if path == "/api/companies":
+                # category=all — специальное значение, снимающее фильтр по
+                # категории (Россия/диаспора) целиком; используется отраслевыми
+                # срезами (например, вкладкой «Финтех»), которым нужны обе
+                # категории сразу в одной сквозной таблице.
+                _category = qs.get("category", "domestic")
+                if _category == "all":
+                    _category = None
                 items, total = db.list_companies(
                     sector=qs.get("sector"),
                     search=qs.get("search"),
-                    category=qs.get("category", "domestic"),
+                    category=_category,
                     status=qs.get("status", "active"),
                     bucket=qs.get("bucket") or None,
                     limit=min(int(qs.get("limit", 100)), 500),
