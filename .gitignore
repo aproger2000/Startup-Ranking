@@ -1,0 +1,17 @@
+# Локальная база данных (создаётся автоматически из seed.json при первом запуске)
+backend/data/startups.db
+backend/data/startups.db-*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ОС / редакторы
+.DS_Store
+*.swp
+
+# Локальные секреты (ADMIN_API_KEY и т.п.) — никогда не коммитить
+.env
+.env.local
