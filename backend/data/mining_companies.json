@@ -422,5 +422,31 @@
     "is_mining_industry": true,
     "mining_use_case": "Отраслевая пресса называет РУСАЛ, KAZ Minerals и Kazakhmys среди клиентов технологии предупреждения столкновений техники и персонала на открытых и подземных горных работах.",
     "mining_source_url": "https://hightech.plus/2023/09/21/ot-videoanalitiki-do-sistem-kontrolya-siz-rezidenti-skolkovo-predstavyat-resheniya-dlya-ohrani-truda"
+  },
+  {
+    "name": "Амальгама (Amalgama Simulation / MineTwin)",
+    "sector": "B2B SaaS и корпоративный софт",
+    "founded": 2011,
+    "desc": "Ульяновская компания имитационного моделирования (цифровые двойники) для операционного и стратегического планирования — на движке AnyLogic и собственной Java-платформе Amalgama Platform.",
+    "note": "Найдена по прямому запросу пользователя о конкретной компании (не входила в предыдущие волны исследования).",
+    "source_name": "Amalgama, официальный сайт (mine-twin.ru)",
+    "source_url": "https://mine-twin.ru/projects/",
+    "rev": null,
+    "rev_year": null,
+    "growth": null,
+    "growth_note": "Более 35 завершённых проектов имитационного моделирования с 2011 года (по собственным данным)",
+    "funding_rub": null,
+    "funding_note": "Данных о венчурном раунде не найдено — похоже на компанию, растущую на клиентской выручке, а не на VC-финансировании",
+    "investors": null,
+    "is_ipo": false,
+    "is_official_rank": false,
+    "is_major_investor": false,
+    "is_early_stage": false,
+    "category": "domestic",
+    "status": "active",
+    "confidence": "high",
+    "is_mining_industry": true,
+    "mining_use_case": "Продукт MineTwin — имитационное моделирование подземной и открытой добычи: оптимизация глубины скважин под взрыв, планирование буровзрывных работ, маршрутизация рудовозного транспорта. Названные клиенты: ПАО «ГМК «Норильский никель»» (2015–2018, подземная добыча), ОАО «Уралкалий» (2013–2014, подземное планирование калийного рудника, совместно с Ernst & Young), BHP Billiton (2014–2015, логистика калийного рудника, Канада). Подтверждено независимым источником — кейсом вендора AnyLogic.",
+    "mining_source_url": "https://www.anylogic.com/resources/case-studies/domain-specific-mining-simulation-software-tool-for-the-world-s-second-largest-nickel-producer/"
   }
 ]
