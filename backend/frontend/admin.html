@@ -175,6 +175,14 @@
         <label><input type="checkbox" id="f_is_major_investor"> Крупный/известный инвестор</label>
         <label><input type="checkbox" id="f_is_early_stage"> Ранняя стадия (seed/pre-seed, без выручки) — попадёт в раздел «Ранняя стадия» независимо от возраста</label>
       </div>
+      <p class="card-sub" style="margin:14px 0 0;">Отраслевой срез «Горно-рудная отрасль» (вкладка на сайте) — обязательный критерий: на сайте или в деке компании должно быть явно описано применение в горнодобыче/металлургии.</p>
+      <div class="checks">
+        <label><input type="checkbox" id="f_is_mining_industry"> Относится к горно-рудной отрасли</label>
+      </div>
+      <label>Применение в горно-рудной отрасли (конкретно, с указанием клиента/пилота, если есть)</label>
+      <input type="text" id="f_mining_use_case">
+      <label>Источник применения в горно-рудной отрасли — ссылка</label>
+      <input type="url" id="f_mining_source_url">
       <div class="btn-row">
         <button type="submit" class="btn btn-primary" id="submitBtn">Создать</button>
         <button type="button" class="btn btn-secondary" id="resetFormBtn">Очистить форму</button>
@@ -250,9 +258,10 @@ document.getElementById('clearKeyBtn').addEventListener('click', () => {
 
 // ---- form ----
 const FIELD_IDS = ['name','sector','founded','rev','rev_year','growth','growth_note','funding_rub','funding_note',
-  'investors','desc','note','source_name','source_url','status','confidence','category'];
+  'investors','desc','note','source_name','source_url','status','confidence','category',
+  'mining_use_case','mining_source_url'];
 const NUM_FIELDS = new Set(['founded','rev','rev_year','growth','funding_rub']);
-const CHECK_IDS = ['is_ipo','is_official_rank','is_major_investor','is_early_stage'];
+const CHECK_IDS = ['is_ipo','is_official_rank','is_major_investor','is_early_stage','is_mining_industry'];
 
 function resetForm(){
   document.getElementById('f_id').value = '';
@@ -396,7 +405,7 @@ async function loadList(){
     <div class="row-item">
       <div class="row-main">
         <span class="row-name">${esc(c.name)}</span> <span class="score-badge">${c.score}</span>
-        <div class="row-meta"><span class="sector-chip">${esc(c.sector)}</span> · ${c.founded ?? '?'} · ${esc(c.bucket ? (BUCKET_LABELS[c.bucket] || c.bucket) : 'исключена из рейтинга (>15 лет)')} · ${esc(c.category)} / ${esc(c.status)}</div>
+        <div class="row-meta"><span class="sector-chip">${esc(c.sector)}</span> · ${c.founded ?? '?'} · ${esc(c.bucket ? (BUCKET_LABELS[c.bucket] || c.bucket) : 'исключена из рейтинга (>15 лет)')} · ${esc(c.category)} / ${esc(c.status)}${c.is_mining_industry ? ' · ⛏ горно-рудная отрасль' : ''}</div>
       </div>
       <div class="row-actions">
         <button class="icon-btn" data-edit="${c.id}">Изм.</button>

@@ -29,6 +29,7 @@ FIELDS = [
     "source_name", "source_url",
     "is_ipo", "is_official_rank", "is_major_investor", "is_early_stage",
     "category", "status", "confidence",
+    "is_mining_industry", "mining_use_case", "mining_source_url",
 ]
 
 SCHEMA = """
@@ -55,6 +56,9 @@ CREATE TABLE IF NOT EXISTS companies (
     category TEXT DEFAULT 'domestic',
     status TEXT DEFAULT 'active',
     confidence TEXT DEFAULT 'medium',
+    is_mining_industry INTEGER DEFAULT 0,
+    mining_use_case TEXT,
+    mining_source_url TEXT,
     score REAL DEFAULT 0,
     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT DEFAULT CURRENT_TIMESTAMP
@@ -119,6 +123,11 @@ def _migrate(conn):
     if "is_early_stage" not in cols:
         conn.execute("ALTER TABLE companies ADD COLUMN is_early_stage INTEGER DEFAULT 0")
         conn.commit()
+    if "is_mining_industry" not in cols:
+        conn.execute("ALTER TABLE companies ADD COLUMN is_mining_industry INTEGER DEFAULT 0")
+        conn.execute("ALTER TABLE companies ADD COLUMN mining_use_case TEXT")
+        conn.execute("ALTER TABLE companies ADD COLUMN mining_source_url TEXT")
+        conn.commit()
 
 
 def _row_to_dict(row: sqlite3.Row) -> dict:
@@ -127,6 +136,7 @@ def _row_to_dict(row: sqlite3.Row) -> dict:
     d["is_official_rank"] = bool(d["is_official_rank"])
     d["is_major_investor"] = bool(d["is_major_investor"])
     d["is_early_stage"] = bool(d.get("is_early_stage", 0))
+    d["is_mining_industry"] = bool(d.get("is_mining_industry", 0))
     d["bucket"] = compute_bucket(d.get("founded"), d["is_early_stage"])
     return d
 
@@ -194,6 +204,27 @@ def list_companies(sector=None, search=None, category="domestic", status="active
     total = len(items)
     page = items[offset:offset + limit]
     return page, total
+
+
+def list_mining_industry_companies(limit=100, offset=0):
+    """Отраслевой рейтинг: компании (любой стадии/раздела), отмеченные как
+    относящиеся к горно-рудной/металлургической отрасли (is_mining_industry=1)
+    — обязательный критерий отбора: на сайте или в деке компании должно быть
+    явно описано применение в горнодобыче/металлургии (см. mining_use_case,
+    mining_source_url в каждой записи). Как и в общем рейтинге, компании
+    старше buckets.MAX_AGE_YEARS исключены (bucket=None), кроме отмеченных
+    is_early_stage — это тот же критерий "это стартап", применённый к
+    отраслевому срезу. Сортировка — по общему скору (та же формула, что и
+    везде на сайте, для сопоставимости)."""
+    conn = get_conn()
+    rows = conn.execute(
+        "SELECT * FROM companies WHERE is_mining_industry = 1 AND status = ?", ("active",)
+    ).fetchall()
+    items = [_row_to_dict(r) for r in rows]
+    items = [it for it in items if it["bucket"] is not None]
+    items.sort(key=lambda it: it["score"], reverse=True)
+    total = len(items)
+    return items[offset:offset + limit], total
 
 
 def get_company(company_id: int):

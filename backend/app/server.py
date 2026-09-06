@@ -199,6 +199,13 @@ class Handler(BaseHTTPRequestHandler):
             if path == "/api/vc-funds":
                 return self._send_json({"items": db.list_vc_funds()})
 
+            if path == "/api/industries/mining":
+                items, total = db.list_mining_industry_companies(
+                    limit=min(int(qs.get("limit", 100)), 500),
+                    offset=int(qs.get("offset", 0)),
+                )
+                return self._send_json({"total": total, "items": items})
+
             if path == "/api/methodology":
                 return self._send_json(METHODOLOGY)
 

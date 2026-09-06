@@ -53,6 +53,21 @@ if vc_count == 0:
 else:
     print("[boot] Таблица vc_funds уже заполнена — пропускаю загрузку")
 
+mining_count = conn.execute("SELECT COUNT(*) FROM companies WHERE is_mining_industry = 1").fetchone()[0]
+print(f"[boot] Компаний горно-рудной отрасли в базе: {mining_count}")
+if mining_count == 0:
+    mining_seed_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "mining_companies.json")
+    if os.path.exists(mining_seed_path):
+        print("[boot] Отраслевой срез (горно-рудная отрасль) пуст — загружаю data/mining_companies.json...")
+        with open(mining_seed_path, encoding="utf-8") as f:
+            mining_items = json.load(f)
+        mining_created, mining_updated = db.bulk_upsert(mining_items)
+        print(f"[boot] Загружено компаний горно-рудной отрасли: создано {mining_created}, обновлено {mining_updated}, всего {len(mining_items)}")
+    else:
+        print("[boot] data/mining_companies.json не найден — пропускаю")
+else:
+    print("[boot] Отраслевой срез (горно-рудная отрасль) уже заполнен — пропускаю загрузку")
+
 from app.server import main  # noqa: E402
 
 main()
