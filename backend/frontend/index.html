@@ -79,6 +79,13 @@
 
   /* --- compact scrollable bucket tables: top ~10 rows visible, rest scrolls inside --- */
   .bucket-scroll { max-height: 480px; overflow-y: auto; border-top:1px solid var(--gridline); }
+  .bucket-scroll.expanded { max-height: none; overflow-y: visible; }
+  .bucket-toggle { display:flex; align-items:center; justify-content:center; gap:5px; width:100%;
+    margin-top:8px; background:none; border:none; padding:8px 0 0; color:var(--series-1);
+    font-size:12px; font-weight:600; cursor:pointer; font-family:inherit; }
+  .bucket-toggle:hover { color:var(--text-primary); }
+  .bucket-toggle .chevron { display:inline-block; transition: transform .15s ease; }
+  .bucket-toggle.expanded .chevron { transform: rotate(180deg); }
   .mini-row { display:flex; align-items:center; gap:8px; padding:8px 4px; border-bottom:1px solid var(--gridline); font-size:12.5px; }
   .mini-row:last-child { border-bottom:none; }
   .mini-rank { flex-shrink:0; width:22px; text-align:center; font-variant-numeric:tabular-nums; color:var(--text-muted); font-weight:600; }
@@ -227,24 +234,28 @@
         <p class="card-sub">До 3 лет · <span data-bucket-count="young">…</span></p>
         <div class="bucket-scroll" data-bucket-list="young"></div>
         <div class="empty-state" data-bucket-empty="young" style="display:none;">Ничего не найдено.</div>
+        <button class="bucket-toggle" style="display:none;" data-toggle-bucket="young" type="button"><span class="chevron">▾</span><span class="label">Показать все</span></button>
       </div>
       <div class="card" data-bucket-card="mature">
         <div class="bucket-head"><h2>Зрелые компании</h2></div>
         <p class="card-sub">3–10 лет · <span data-bucket-count="mature">…</span></p>
         <div class="bucket-scroll" data-bucket-list="mature"></div>
         <div class="empty-state" data-bucket-empty="mature" style="display:none;">Ничего не найдено.</div>
+        <button class="bucket-toggle" style="display:none;" data-toggle-bucket="mature" type="button"><span class="chevron">▾</span><span class="label">Показать все</span></button>
       </div>
       <div class="card" data-bucket-card="aged">
         <div class="bucket-head"><h2>Возрастные, но растущие</h2></div>
         <p class="card-sub">10–15 лет, активный рост · <span data-bucket-count="aged">…</span></p>
         <div class="bucket-scroll" data-bucket-list="aged"></div>
         <div class="empty-state" data-bucket-empty="aged" style="display:none;">Ничего не найдено.</div>
+        <button class="bucket-toggle" style="display:none;" data-toggle-bucket="aged" type="button"><span class="chevron">▾</span><span class="label">Показать все</span></button>
       </div>
       <div class="card" data-bucket-card="early_stage">
         <div class="bucket-head"><h2>Ранняя стадия</h2></div>
         <p class="card-sub">Seed / pre-seed, без выручки или на старте · <span data-bucket-count="early_stage">…</span></p>
         <div class="bucket-scroll" data-bucket-list="early_stage"></div>
         <div class="empty-state" data-bucket-empty="early_stage" style="display:none;">Ничего не найдено.</div>
+        <button class="bucket-toggle" style="display:none;" data-toggle-bucket="early_stage" type="button"><span class="chevron">▾</span><span class="label">Показать все</span></button>
       </div>
     </div>
   </div>
@@ -437,9 +448,16 @@ async function loadBucket(bucket){
   const listEl = document.querySelector(`[data-bucket-list="${bucket}"]`);
   const countEl = document.querySelector(`[data-bucket-count="${bucket}"]`);
   const emptyEl = document.querySelector(`[data-bucket-empty="${bucket}"]`);
+  const toggleEl = document.querySelector(`[data-toggle-bucket="${bucket}"]`);
   countEl.textContent = `показано ${data.items.length} из ${data.total}`;
+  listEl.classList.remove('expanded');
   listEl.innerHTML = data.items.map((c,i) => miniRowHtml(c, i+1)).join('');
   emptyEl.style.display = data.items.length === 0 ? 'block' : 'none';
+  toggleEl.classList.remove('expanded');
+  toggleEl.querySelector('.label').textContent = 'Показать все';
+  // стрелочку показываем только если список реально длиннее видимой области —
+  // иначе (мало компаний) разворачивать нечего
+  toggleEl.style.display = listEl.scrollHeight > listEl.clientHeight + 4 ? 'flex' : 'none';
 }
 
 async function loadAllBuckets(){
@@ -567,6 +585,15 @@ document.getElementById('themeToggle').addEventListener('click', () => {
   if (cur === 'dark') root.setAttribute('data-theme','light');
   else if (cur === 'light') root.removeAttribute('data-theme');
   else root.setAttribute('data-theme','dark');
+});
+document.querySelectorAll('.bucket-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const bucket = btn.dataset.toggleBucket;
+    const listEl = document.querySelector(`[data-bucket-list="${bucket}"]`);
+    const expanded = listEl.classList.toggle('expanded');
+    btn.classList.toggle('expanded', expanded);
+    btn.querySelector('.label').textContent = expanded ? 'Свернуть' : 'Показать все';
+  });
 });
 
 // ---- init ----
