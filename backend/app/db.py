@@ -30,6 +30,7 @@ FIELDS = [
     "is_ipo", "is_official_rank", "is_major_investor", "is_early_stage",
     "category", "status", "confidence",
     "is_mining_industry", "mining_use_case", "mining_source_url",
+    "mining_cagr", "mining_cagr_note",
 ]
 
 SCHEMA = """
@@ -59,6 +60,8 @@ CREATE TABLE IF NOT EXISTS companies (
     is_mining_industry INTEGER DEFAULT 0,
     mining_use_case TEXT,
     mining_source_url TEXT,
+    mining_cagr REAL,
+    mining_cagr_note TEXT,
     score REAL DEFAULT 0,
     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT DEFAULT CURRENT_TIMESTAMP
@@ -127,6 +130,10 @@ def _migrate(conn):
         conn.execute("ALTER TABLE companies ADD COLUMN is_mining_industry INTEGER DEFAULT 0")
         conn.execute("ALTER TABLE companies ADD COLUMN mining_use_case TEXT")
         conn.execute("ALTER TABLE companies ADD COLUMN mining_source_url TEXT")
+        conn.commit()
+    if "mining_cagr" not in cols:
+        conn.execute("ALTER TABLE companies ADD COLUMN mining_cagr REAL")
+        conn.execute("ALTER TABLE companies ADD COLUMN mining_cagr_note TEXT")
         conn.commit()
 
 
@@ -206,22 +213,38 @@ def list_companies(sector=None, search=None, category="domestic", status="active
     return page, total
 
 
+# Отраслевой срез «Горно-рудная отрасль» — сознательно более широкий
+# возрастной охват, чем общий рейтинг стартапов (buckets.MAX_AGE_YEARS=15):
+# здесь цель — показать сложившийся ландшафт вендоров/интеграторов для
+# отрасли, а не только молодые растущие компании, поэтому порог — год
+# основания, а не возраст в годах (не "плавает" от текущей даты, как
+# MAX_AGE_YEARS).
+MINING_MIN_FOUNDED_YEAR = 2000
+
+
 def list_mining_industry_companies(limit=100, offset=0):
-    """Отраслевой рейтинг: компании (любой стадии/раздела), отмеченные как
-    относящиеся к горно-рудной/металлургической отрасли (is_mining_industry=1)
-    — обязательный критерий отбора: на сайте или в деке компании должно быть
-    явно описано применение в горнодобыче/металлургии (см. mining_use_case,
-    mining_source_url в каждой записи). Как и в общем рейтинге, компании
-    старше buckets.MAX_AGE_YEARS исключены (bucket=None), кроме отмеченных
-    is_early_stage — это тот же критерий "это стартап", применённый к
-    отраслевому срезу. Сортировка — по общему скору (та же формула, что и
-    везде на сайте, для сопоставимости)."""
+    """Отраслевой рейтинг: компании (любой стадии/раздела, любого возраста
+    с MINING_MIN_FOUNDED_YEAR), отмеченные как относящиеся к горно-рудной/
+    металлургической отрасли (is_mining_industry=1) — обязательный критерий
+    отбора: на сайте или в деке компании должно быть явно описано применение
+    в горнодобыче/металлургии (см. mining_use_case, mining_source_url в
+    каждой записи). В отличие от общего рейтинга, здесь НЕ применяется
+    общий 15-летний ценз (buckets.MAX_AGE_YEARS) — вместо него компания
+    должна быть основана не раньше MINING_MIN_FOUNDED_YEAR (или год основания
+    неизвестен). Это намеренное расхождение с политикой общего рейтинга:
+    отраслевой срез показывает состоявшихся вендоров/интеграторов отрасли,
+    а не только молодые стартапы, поэтому запись может быть видна здесь, но
+    отсутствовать в общем рейтинге (bucket там будет null). Сортировка — по
+    общему скору (та же формула, что и везде на сайте, для сопоставимости)."""
     conn = get_conn()
     rows = conn.execute(
         "SELECT * FROM companies WHERE is_mining_industry = 1 AND status = ?", ("active",)
     ).fetchall()
     items = [_row_to_dict(r) for r in rows]
-    items = [it for it in items if it["bucket"] is not None]
+    items = [
+        it for it in items
+        if it.get("founded") is None or it["founded"] >= MINING_MIN_FOUNDED_YEAR
+    ]
     items.sort(key=lambda it: it["score"], reverse=True)
     total = len(items)
     return items[offset:offset + limit], total

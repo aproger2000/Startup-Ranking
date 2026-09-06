@@ -191,7 +191,7 @@
   .mining-card-head h2 { margin:0 0 4px; font-size:16px; color:#fff; }
   .mining-card-head p { margin:0; font-size:12px; opacity:.92; line-height:1.5; }
   .mining-table-wrap { overflow-x:auto; }
-  table.mining-table { width:100%; border-collapse:collapse; font-size:12.5px; min-width:760px; }
+  table.mining-table { width:100%; border-collapse:collapse; font-size:12.5px; min-width:920px; }
   table.mining-table thead th { text-align:left; font-weight:700; color:var(--text-secondary); font-size:10.5px; text-transform:uppercase;
     letter-spacing:.04em; padding:10px 12px; border-bottom:2px solid var(--mining-accent); white-space:nowrap; background:var(--chip-bg); }
   table.mining-table tbody td { padding:11px 12px; border-bottom:1px solid var(--gridline); vertical-align:top; }
@@ -207,6 +207,8 @@
   .mining-confidence.high { background:rgba(12,163,12,.13); color:var(--good); }
   .mining-confidence.medium { background:rgba(250,178,25,.20); color:#a86200; }
   .mining-confidence.low { background:rgba(208,59,59,.13); color:var(--bad); }
+  .mining-cagr-cell { min-width:150px; }
+  .mining-cagr-note { color:var(--text-muted); font-size:10.5px; line-height:1.4; margin-top:4px; max-width:220px; }
   .mining-foot { padding:12px 16px 16px; font-size:11.5px; color:var(--text-muted); line-height:1.6; border-top:1px solid var(--gridline); }
   footer { text-align:center; color:var(--text-muted); font-size:11.5px; margin-top:24px; line-height:1.6; }
   footer a { color: var(--series-1); }
@@ -354,14 +356,16 @@
   <div id="miningView" style="display:none;">
     <div class="mining-card">
       <div class="mining-card-head">
-        <h2>Рейтинг стартапов горно-рудной отрасли</h2>
-        <p>Стартапы всех стадий (от seed до зрелых), для которых на сайте или в деке явно описано применение в
-          горнодобыче, обогащении руды или металлургии — обязательный критерий отбора. Скор и его формула — те же,
-          что и в общем рейтинге выше, для сопоставимости.</p>
+        <h2>Рейтинг компаний горно-рудной отрасли</h2>
+        <p>Стартапы и состоявшиеся вендоры/интеграторы (компании с 2000 года), для которых на сайте или в деке явно
+          описано применение в горнодобыче, обогащении руды или металлургии — обязательный критерий отбора. Скор и
+          его формула — те же, что и в общем рейтинге выше, для сопоставимости; в отличие от общего рейтинга, здесь
+          нет 15-летнего возрастного ценза — цель этого среза шире, показать весь сложившийся рынок отрасли, а не
+          только молодые стартапы.</p>
       </div>
       <div class="mining-table-wrap">
         <table class="mining-table">
-          <thead><tr><th>#</th><th>Компания</th><th>Год осн.</th><th>Применение в горно-рудной отрасли</th><th>Скор</th></tr></thead>
+          <thead><tr><th>#</th><th>Компания</th><th>Год осн.</th><th>Применение в горно-рудной отрасли</th><th>Динамика выручки</th><th>Скор</th></tr></thead>
           <tbody id="miningBody"></tbody>
         </table>
       </div>
@@ -370,10 +374,14 @@
         <b>Обязательный критерий отбора</b> — на сайте компании, в её пресс-материалах или в деке должно быть явно
         названо применение в горнодобывающей, горно-обогатительной или металлургической отрасли (например, конкретный
         пилот/клиент вроде Норникеля, ЕВРАЗа, Металлоинвеста, Nordgold, НЛМК, УГМК, либо продукт прямо позиционируется
-        для этой отрасли на сайте). Компании старше 15 лет исключены — как и в общем рейтинге, это рейтинг именно
-        стартапов и растущих молодых компаний. Список сформирован через открытый веб-поиск (сайты компаний, vc.ru,
-        RB.RU, TAdviser, CNews, Habr, отраслевые СМИ) и не претендует на исчерпывающий охват рынка — если вы знаете
-        стартап, который должен быть здесь, напишите нам через админ-панель.
+        для этой отрасли на сайте). Компании основаны не раньше 2000 года — заметно шире, чем 15-летний ценз общего
+        рейтинга, потому что здесь цель показать сложившийся рынок отрасли целиком, а не только молодые стартапы;
+        поэтому запись может быть видна в этом разделе, но отсутствовать в общем рейтинге выше. Динамика выручки —
+        CAGR (среднегодовой темп роста), только там, где найдено 2+ года публичных данных о выручке; для большинства
+        компаний такие данные непубличны, и вместо цифры показано «нет данных» — это не признак слабости бизнеса.
+        Список сформирован через открытый веб-поиск (сайты компаний, vc.ru, RB.RU, TAdviser, CNews, Habr, Sk.ru,
+        отраслевые СМИ) и не претендует на исчерпывающий охват рынка — если вы знаете компанию, которая должна быть
+        здесь, напишите нам через админ-панель.
       </div>
     </div>
   </div><!-- /miningView -->
@@ -626,6 +634,17 @@ async function loadVcFunds(){
 
 const MINING_CONFIDENCE_RU = { high: 'высокая уверенность', medium: 'средняя уверенность', low: 'низкая уверенность' };
 
+function miningCagrHtml(c){
+  if (c.mining_cagr === null || c.mining_cagr === undefined) {
+    return '<span class="na">нет данных</span>';
+  }
+  const cls = c.mining_cagr >= 0 ? 'growth-pos' : 'growth-neg';
+  const sign = c.mining_cagr >= 0 ? '+' : '';
+  const val = `<span class="${cls}" style="font-weight:700;">${sign}${c.mining_cagr.toFixed(1)}% CAGR</span>`;
+  const note = c.mining_cagr_note ? `<div class="mining-cagr-note">${esc(c.mining_cagr_note)}</div>` : '';
+  return val + note;
+}
+
 function miningRowHtml(c, rank){
   const useCaseUrl = c.mining_source_url || c.source_url;
   return `<tr>
@@ -640,7 +659,9 @@ function miningRowHtml(c, rank){
       <div class="mining-usecase">${esc(c.mining_use_case || '')}</div>
       ${useCaseUrl ? `<div class="mining-source"><a href="${escAttr(useCaseUrl)}" target="_blank" rel="noopener">${esc(c.source_name || 'источник')} ↗</a></div>` : ''}
       ${c.confidence ? `<span class="mining-confidence ${esc(c.confidence)}">${esc(MINING_CONFIDENCE_RU[c.confidence] || c.confidence)}</span>` : ''}
+      ${c.note ? `<div class="t-note">${esc(c.note)}</div>` : ''}
     </td>
+    <td class="mining-cagr-cell">${miningCagrHtml(c)}</td>
     <td><span class="t-score"${scoreStyleAttr(c.score)}>${c.score}</span></td>
   </tr>`;
 }

@@ -183,6 +183,11 @@
       <input type="text" id="f_mining_use_case">
       <label>Источник применения в горно-рудной отрасли — ссылка</label>
       <input type="url" id="f_mining_source_url">
+      <div class="grid2">
+        <div><label>CAGR выручки, % (если есть 2+ года публичных данных)</label><input type="number" step="any" id="f_mining_cagr"></div>
+        <div><label>Пояснение к CAGR (годы, цифры, источник)</label><input type="text" id="f_mining_cagr_note"></div>
+      </div>
+      <p class="card-sub" style="margin:4px 0 0;">Отраслевой срез не применяет общий 15-летний возрастной ценз — только «год основания не раньше 2000» (компания может быть видна здесь, но отсутствовать в общем рейтинге).</p>
       <div class="btn-row">
         <button type="submit" class="btn btn-primary" id="submitBtn">Создать</button>
         <button type="button" class="btn btn-secondary" id="resetFormBtn">Очистить форму</button>
@@ -259,8 +264,8 @@ document.getElementById('clearKeyBtn').addEventListener('click', () => {
 // ---- form ----
 const FIELD_IDS = ['name','sector','founded','rev','rev_year','growth','growth_note','funding_rub','funding_note',
   'investors','desc','note','source_name','source_url','status','confidence','category',
-  'mining_use_case','mining_source_url'];
-const NUM_FIELDS = new Set(['founded','rev','rev_year','growth','funding_rub']);
+  'mining_use_case','mining_source_url','mining_cagr','mining_cagr_note'];
+const NUM_FIELDS = new Set(['founded','rev','rev_year','growth','funding_rub','mining_cagr']);
 const CHECK_IDS = ['is_ipo','is_official_rank','is_major_investor','is_early_stage','is_mining_industry'];
 
 function resetForm(){
